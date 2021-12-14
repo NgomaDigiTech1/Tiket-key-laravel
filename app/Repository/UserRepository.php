@@ -32,7 +32,7 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
 
     public function create($attributes): Model|Builder
     {
-        return User::query()
+        $user = User::query()
             ->create([
                 'name' => $attributes->input('name'),
                 'first_name' => $attributes->input('first_name'),
@@ -43,15 +43,39 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
                 'role_id' => $attributes->input('role_id'),
                 'picture' => self::uploadFiles($attributes)
             ]);
+        toast("Un utilisateur a ete ajouter", 'success');
+        return $user;
     }
 
     public function update(string $key, $attributes): Model|Builder
     {
-        // TODO: Implement update() method.
+        $user = $this->show($key);
+        $this->removeOldImages($user);
+        $this->updateUser($user, $attributes);
+        toast("L'utilisateur a ete modifier", 'warning');
+        return $user;
     }
 
     public function delete(string $key): Model|Builder
     {
-        // TODO: Implement delete() method.
+        $user = $this->show($key);
+        $this->removeOldImages($user);
+        $user->delete();
+        toast('L\'utilisateur vient d\'etre suspéndue pour des raisons de securité', 'success');
+        return $user;
+    }
+
+    private function updateUser($user, $attributes)
+    {
+        $user->update([
+            'name' => $attributes->input('name'),
+            'first_name' => $attributes->input('first_name'),
+            'email' => $attributes->input('email'),
+            'birthdays' => $attributes->input('birthdays'),
+            'phone_number' => $attributes->input('phone_number'),
+            'password' => Hash::make($attributes->input('password')),
+            'role_id' => $attributes->input('role_id'),
+            'picture' => self::uploadFiles($attributes)
+        ]);
     }
 }

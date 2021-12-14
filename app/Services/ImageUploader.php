@@ -14,14 +14,9 @@ trait ImageUploader
             ->storePublicly('/', ['disk' => 'public']);
     }
 
-    public function removePathOfImages($model)
+    public function removeOldImages($model)
     {
         Storage::disk('public')
             ->delete($model->picture);
-    }
-
-    public function unsetFilesUploads($model)
-    {
-        Storage::disk('public')->delete($model->picture);
     }
 }

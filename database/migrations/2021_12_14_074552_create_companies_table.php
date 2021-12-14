@@ -12,9 +12,11 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
-            $table->string('name_company');
+            $table->string('name_company')->unique();
             $table->string('picture');
             $table->string('address');
+            $table->string('phone_number')->unique();
+            $table->string('email')->unique();
             $table->foreignId('user_id')
                 ->constrained()
                 ->cascadeOnDelete();

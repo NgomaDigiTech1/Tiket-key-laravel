@@ -27,8 +27,12 @@ final class UserDashboardController extends Controller
         ]);
     }
 
-    public function show(string $key)
-    {}
+    public function show(string $key): Factory|View|Application
+    {
+        return view('admins.pages.users.show', [
+            'user' => $this->repository->show($key)
+        ]);
+    }
 
     public function create(): Factory|View|Application
     {
@@ -46,11 +50,25 @@ final class UserDashboardController extends Controller
     }
 
     public function edit(string $key)
-    {}
+    {
+        $user = $this->repository->show($key);
+        $form = $this->builder->create(UserForm::class, [
+            'method' => 'PUT',
+            'url' => route('admin.users.update', $user->key),
+            'model' => $user
+        ]);
+        return view('admins.pages.users.create', compact('form', 'user'));
+    }
 
-    public function update()
-    {}
+    public function update(string $key, UserRequest $attributes): RedirectResponse
+    {
+        $this->repository->update($key, $attributes);
+        return redirect()->route('admin.users.index');
+    }
 
-    public function destroy(string $key)
-    {}
+    public function destroy(string $key): RedirectResponse
+    {
+        $this->repository->delete($key);
+        return redirect()->route('admin.users.index');
+    }
 }

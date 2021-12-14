@@ -29,6 +29,16 @@
                         'name' => 'Utilisateur',
                         'icon' => 'ni-users'
                     ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.company.index'),
+                        'name' => 'Companie',
+                        'icon' => 'ni-building'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.drivers.index'),
+                        'name' => 'Chauffeurs',
+                        'icon' => 'ni-focus'
+                    ])
                 </ul>
             </div>
         </div>
