@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('birthdays')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('role_id')->default(2);
             $table->rememberToken();
             $table->timestamps();
         });
