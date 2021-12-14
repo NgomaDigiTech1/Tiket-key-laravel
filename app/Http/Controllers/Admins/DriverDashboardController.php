@@ -71,4 +71,23 @@ class DriverDashboardController extends Controller
         $this->repository->delete($key);
         return redirect()->route('admin.drivers.index');
     }
+
+    public function trashed(): Factory|View|Application
+    {
+        return view('admins.pages.drivers.soft', [
+            'drivers' => $this->repository->getSuspendDrivers()
+        ]);
+    }
+
+    public function restoreDriver(string $key): RedirectResponse
+    {
+        $this->repository->restore($key);
+        return redirect()->route('admin.drivers.index');
+    }
+
+    public function forceDelete(string $key): RedirectResponse
+    {
+        $this->repository->forceDelete($key);
+        return redirect()->route('admin.drivers.index');
+    }
 }

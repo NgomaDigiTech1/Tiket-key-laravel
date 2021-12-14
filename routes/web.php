@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::resource('users', UserDashboardController::class);
     Route::resource('company', CompanyDashboardController::class);
     Route::resource('drivers', DriverDashboardController::class);
+    Route::get('chauffeurSuspendu', [DriverDashboardController::class, 'trashed'])->name('driver.trashed');
+    Route::put('restoreDriver/{key}', [DriverDashboardController::class, 'restoreDriver'])->name('driver.restore');
+    Route::delete('deleteDriver/{key}', [DriverDashboardController::class, 'forceDelete'])->name('driver.force');
 });
 
 

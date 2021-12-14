@@ -54,10 +54,34 @@ class DriverRepository extends Interfaces\BaseRepositoryInterface
     public function delete(string $key): Model|Builder
     {
         $driver = $this->show($key);
-        $this->removeOldImages($driver);
         $driver->delete();
         toast("Un chauffeur a ete suspendue pour raison interne", 'info');
         return $driver;
+    }
+
+    public function getSuspendDrivers(): array|Collection|\Illuminate\Support\Collection
+    {
+        return Driver::onlyTrashed()
+            ->orderBy('created_at', 'DESC')
+            ->get();
+    }
+
+    public function restore(string $key): ?bool
+    {
+        $driver = Driver::withTrashed()
+            ->where('key', '=', $key)
+            ->restore();
+        toast("Le chauffeur a ete restorer sur la plateforme", 'success');
+        return $driver;
+    }
+
+    public function forceDelete(string $key): Model|Builder
+    {
+        $user = $this->show($key);
+        $this->removeOldImages($user);
+        $user->forceDelete();
+        toast('Le chauffeur supprimer definitivement sur la plateforme', 'success');
+        return $user;
     }
 
     private function updateDriver($driver, $attributes)

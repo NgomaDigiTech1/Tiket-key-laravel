@@ -8,26 +8,16 @@
     <div class="nk-content-inner">
         <div class="nk-content-body">
             <div class="nk-block-head nk-block-head-sm">
-                <div class="nk-block-between">
-                    <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Chauffeurs</h3>
-                    </div>
-                    <div class="nk-block-head-content">
-                        <div class="toggle-wrap nk-block-tools-toggle">
-                            <div class="toggle-expand-content" data-content="pageMenu">
-                                <ul class="nk-block-tools g-3">
-                                    <li class="preview-item">
-                                        <a href="{{ route('admin.drivers.create') }}" class="btn btn-dim btn-primary btn-sm">
-                                            <em class="icon ni ni-plus mr-1"></em> Ajouter
-                                        </a>
-                                    </li>
-                                    <li class="preview-item">
-                                        <a href="{{ route('admin.driver.trashed') }}" class="btn btn-dim btn-secondary btn-sm">
-                                            <em class="icon ni ni-histroy mr-1"></em> Historique
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                <div class="nk-block-head nk-block-head-sm">
+                    <div class="nk-block-between g-3">
+                        <div class="nk-block-head-content">
+                            <h3 class="nk-block-title page-title">Historique chauffeurs</h3>
+                        </div>
+                        <div class="nk-block-head-content">
+                            <a href="{{ route('admin.drivers.index') }}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
+                                <em class="icon ni ni-arrow-left"></em>
+                                <span>Back</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -86,30 +76,12 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <ul class="link-list-opt no-bdr">
-                                                                @if(auth()->user()->role_id == 2)
-                                                                    <li>
-                                                                        <a href="{{ route('admin.drivers.show', $driver->key) }}">
-                                                                            <em class="icon ni ni-eye"></em>
-                                                                            <span>Voir</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="{{ route('admin.drivers.edit', $driver->key) }}">
-                                                                            <em class="icon ni ni-edit"></em>
-                                                                            <span>Editer</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <form action="{{ route('admin.drivers.destroy', $driver->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
-                                                                            @method('DELETE')
-                                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                            <button type="submit" class="btn btn-dim">
-                                                                                <em class="icon ni ni-lock-alt"></em>
-                                                                                <span>Supprimer</span>
-                                                                            </button>
-                                                                        </form>
-                                                                    </li>
-                                                                @endif
+                                                                <li>
+                                                                    <a href="{{ route('admin.drivers.show', $driver->key) }}">
+                                                                        <em class="icon ni ni-eye"></em>
+                                                                        <span>Voir</span>
+                                                                    </a>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
