@@ -13,15 +13,15 @@
 <div id="app">
     <div class="nk-app-root">
         <div class="nk-main ">
-            @include('admins.components.sidebar')
+            @include('companies.components.sidebar')
             <div class="nk-wrap">
-                @include('admins.components.header')
+                @include('companies.components.header')
                 <div class="nk-content">
                     <div class="container-fluid">
                         @yield('content')
                     </div>
                 </div>
-                @include('admins.partials.footer')
+                @include('companies.partials.footer')
             </div>
         </div>
     </div>

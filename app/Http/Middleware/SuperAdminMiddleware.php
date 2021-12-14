@@ -21,7 +21,7 @@ class SuperAdminMiddleware
     {
         if(!Auth::check()){return redirect()->route('login');}
         return match (Auth::user()->role_id) {
-            1 => redirect()->route('dashboard.index'),
+            1 => redirect()->route('company.dashboard.index'),
             2 => $next($request),
             default => redirect()->route('login'),
         };
