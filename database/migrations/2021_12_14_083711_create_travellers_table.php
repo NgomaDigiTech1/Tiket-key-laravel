@@ -9,25 +9,19 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('travellers', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
             $table->string('name');
             $table->string('first_name');
-            $table->string('picture')
-                ->nullable()
-                ->default('images.png');
-            $table->string('email')->unique();
-            $table->date('birthdays')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('email');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('travellers');
     }
 };
