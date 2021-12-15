@@ -29,7 +29,7 @@
                         'icon' => 'ni-menu-alt'
                     ])
                     <li class="nk-menu-heading">
-                        <h6 class="overline-title text-primary-alt">Administration</h6>
+                        <h6 class="overline-title text-primary-alt">{{ auth()->user()->company->name_company }}</h6>
                     </li>
                     @include('admins.components.NavLink', [
                         'route' => route('company.chauffeur.index'),
@@ -40,6 +40,26 @@
                         'route' => route('company.bus.index'),
                         'name' => 'Nos Bus',
                         'icon' => 'ni-truck'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('company.towns.index'),
+                        'name' => 'Ville',
+                        'icon' => 'ni-map'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.trajets.index'),
+                        'name' => 'Ligne de transport',
+                        'icon' => 'ni-location'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.booking.index'),
+                        'name' => 'Reservation',
+                        'icon' => 'ni-exchange'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.booking.index'),
+                        'name' => 'Clients',
+                        'icon' => 'ni-money'
                     ])
                 </ul>
             </div>

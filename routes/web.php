@@ -13,6 +13,7 @@ use App\Http\Controllers\Companies\BusCompanyController;
 use App\Http\Controllers\Companies\ConfigCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
 use App\Http\Controllers\Companies\DriverCompanyController;
+use App\Http\Controllers\Companies\TownCompanyController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,6 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('dashboard', DashboardCompanyController::class);
     Route::resource('chauffeur', DriverCompanyController::class);
     Route::resource('bus', BusCompanyController::class);
+    Route::resource('towns', TownCompanyController::class);
 });
 
