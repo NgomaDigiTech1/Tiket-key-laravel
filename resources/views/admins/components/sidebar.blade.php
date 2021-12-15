@@ -49,6 +49,15 @@
                         'name' => 'Nos Bus',
                         'icon' => 'ni-truck'
                     ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.trajets.index'),
+                        'name' => 'Ligne de transport',
+                        'icon' => 'ni-location'
+                    ])
+
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Transaction</h6>
+                    </li>
                 </ul>
             </div>
         </div>

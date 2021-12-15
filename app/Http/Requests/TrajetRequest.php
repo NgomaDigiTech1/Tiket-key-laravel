@@ -1,30 +1,27 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TrajetRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'starting_city' => ['required', Rule::exists('towns', 'name_town')],
+            'arrival_city' => ['required', Rule::exists('towns', 'name_town')],
+            'prices' => ['required', 'integer', 'min:3'],
+
+            'company_id' => ['required'],
+            'company_id.*' => ['integer', Rule::exists('users', 'id')]
         ];
     }
 }
