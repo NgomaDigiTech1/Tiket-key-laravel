@@ -47,7 +47,7 @@
                         'icon' => 'ni-map'
                     ])
                     @include('admins.components.NavLink', [
-                        'route' => route('admin.trajets.index'),
+                        'route' => route('company.trajets.index'),
                         'name' => 'Ligne de transport',
                         'icon' => 'ni-location'
                     ])
