@@ -19,8 +19,8 @@ class Payment extends Model
         return $this->hasMany(Traveller::class);
     }
 
-    public function trajet(): HasMany
+    public function booking(): HasMany
     {
-        return $this->hasMany(Trajet::class);
+        return $this->hasMany(Booking::class);
     }
 }

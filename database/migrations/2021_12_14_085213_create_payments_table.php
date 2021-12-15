@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('code_payment')->unique();
             $table->foreignId('traveller_id')
                 ->constrained();
-            $table->foreignId('trajet_id')
+            $table->foreignId('booking_id')
                 ->constrained();
             $table->timestamps();
         });

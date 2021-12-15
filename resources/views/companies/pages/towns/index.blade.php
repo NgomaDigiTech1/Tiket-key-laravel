@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
     Villes
@@ -17,7 +17,7 @@
                             <div class="toggle-expand-content" data-content="pageMenu">
                                 <ul class="nk-block-tools g-3">
                                     <li class="preview-item">
-                                        <a href="{{ route('admin.towns.create') }}" class="btn btn-dim btn-primary btn-sm">
+                                        <a href="{{ route('company.towns.create') }}" class="btn btn-dim btn-primary btn-sm">
                                             <em class="icon ni ni-plus mr-1"></em> Ajouter
                                         </a>
                                     </li>
@@ -59,13 +59,13 @@
                                                             <ul class="link-list-opt no-bdr">
                                                                 @if(auth()->user()->role_id == 2)
                                                                     <li>
-                                                                        <a href="{{ route('admin.towns.edit', $town->key) }}">
+                                                                        <a href="{{ route('company.towns.edit', $town->key) }}">
                                                                             <em class="icon ni ni-edit"></em>
                                                                             <span>Editer</span>
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <form action="{{ route('admin.towns.destroy', $town->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
+                                                                        <form action="{{ route('company.towns.destroy', $town->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
                                                                             @method('DELETE')
                                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                                             <button type="submit" class="btn btn-dim">

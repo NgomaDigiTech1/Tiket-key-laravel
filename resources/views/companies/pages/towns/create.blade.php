@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
     Ville
@@ -12,7 +12,7 @@
                     <h3 class="nk-block-title page-title">Ajouter des villes</h3>
                 </div>
                 <div class="nk-block-head-content">
-                    <a href="{{ route('admin.towns.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
+                    <a href="{{ route('company.towns.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
                         <em class="icon ni ni-arrow-left"></em>
                         <span>Back</span>
                     </a>
@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-aside-wrap">
                     <div class="card-inner card-inner-lg">
-                        @include('admins.pages.towns._form')
+                        @include('companies.pages.towns._form')
                     </div>
                 </div>
             </div>

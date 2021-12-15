@@ -26,4 +26,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Trajet::class, 'trajet_id');
     }
+
+    public function payment(): BelongsTo
+    {
+        return $this->belongsTo(Payment::class, 'booking_id');
+    }
 }
