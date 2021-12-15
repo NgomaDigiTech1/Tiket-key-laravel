@@ -20,7 +20,7 @@ class DriverRequest extends FormRequest
             'name' => ['required', 'min:4', 'string'],
             'age' => ['required', 'integer'],
             'phone_number' => ['required', 'min:9'],
-            'picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
 
             'company_id' => ['required'],
             'company_id.*' => ['integer', Rule::exists('companies', 'id')]

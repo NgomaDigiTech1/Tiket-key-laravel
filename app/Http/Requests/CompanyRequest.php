@@ -17,7 +17,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'name_company' => ['required', 'min:4', 'string'],
-            'picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'address' => ['required', 'string'],
             'phone_number' => ['required', 'min:9'],
             'email' => ['required', 'email'],

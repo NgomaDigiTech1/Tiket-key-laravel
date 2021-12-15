@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Models\Event;
 use App\Models\User;
 use App\Services\ImageUploader;
 use Illuminate\Database\Eloquent\Builder;
@@ -43,6 +44,7 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
                 'role_id' => $attributes->input('role_id'),
                 'picture' => self::uploadFiles($attributes)
             ]);
+        $this->createEvent();
         toast("Un utilisateur a ete ajouter", 'success');
         return $user;
     }
@@ -52,6 +54,7 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
         $user = $this->show($key);
         $this->removeOldImages($user);
         $this->updateUser($user, $attributes);
+        $this->updateEvent();
         toast("L'utilisateur a ete modifier", 'warning');
         return $user;
     }
@@ -77,5 +80,25 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
             'role_id' => $attributes->input('role_id'),
             'picture' => self::uploadFiles($attributes)
         ]);
+    }
+
+    private function createEvent()
+    {
+        Event::query()
+            ->create([
+                'event_name' => "creation d'utilisateur",
+                'description' => "un nouveaux utilisateur a ete creer",
+                'user_id' => auth()->id()
+            ]);
+    }
+
+    private function updateEvent()
+    {
+        Event::query()
+            ->create([
+                'event_name' => "Mise d'un utilisateur",
+                'description' => "un utilisateur a ete mise a jours",
+                'user_id' => auth()->id()
+            ]);
     }
 }

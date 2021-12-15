@@ -11,9 +11,6 @@ return new class extends Migration {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
-            $table->integer('prices');
-            $table->string('starting_city');
-            $table->string('arrival_city');
             $table->foreignId('trajet_id')
                 ->constrained();
             $table->timestamps();

@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admins\BookingDashboardController;
 use App\Http\Controllers\Admins\BusDashboardController;
 use App\Http\Controllers\Admins\CompanyDashboardController;
 use App\Http\Controllers\Admins\DashboardController;
 use App\Http\Controllers\Admins\DriverDashboardController;
+use App\Http\Controllers\Admins\EventLogDashboardController;
 use App\Http\Controllers\Admins\TownDashboardController;
+use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
 use App\Http\Controllers\HomeController;
@@ -25,6 +28,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::delete('deleteDriver/{key}', [DriverDashboardController::class, 'forceDelete'])->name('driver.force');
     Route::resource('towns', TownDashboardController::class);
     Route::resource('bus', BusDashboardController::class);
+    Route::resource('trajets', TrajetDashboardController::class);
+    Route::resource('booking', BookingDashboardController::class);
+    Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });
 
 

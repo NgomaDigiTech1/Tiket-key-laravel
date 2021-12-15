@@ -58,6 +58,16 @@
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Transaction</h6>
                     </li>
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.booking.index'),
+                        'name' => 'Reservation',
+                        'icon' => 'ni-exchange'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.booking.index'),
+                        'name' => 'Clients',
+                        'icon' => 'ni-money'
+                    ])
                 </ul>
             </div>
         </div>
