@@ -70,7 +70,7 @@
                         </div>
                         <div class="tab-pane" id="admin">
                             <div class="card-inner pt-0">
-                                <form action="#" class="mt-2">
+                                <form method="POST" action="{{ route('company.admin.update', auth()->user()->key) }}" class="mt-2" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row g-gs">

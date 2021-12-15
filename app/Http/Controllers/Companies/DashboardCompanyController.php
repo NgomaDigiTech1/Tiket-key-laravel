@@ -8,6 +8,7 @@ use App\Repository\Company\ConfigRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class DashboardCompanyController extends Controller
 {
@@ -21,5 +22,10 @@ class DashboardCompanyController extends Controller
     public function voir(): Factory|View|Application
     {
         return view('companies.edit');
+    }
+
+    public function updateUser(string $key, Request $request)
+    {
+        dd($key, $request);
     }
 }

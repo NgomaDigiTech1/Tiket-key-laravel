@@ -47,5 +47,6 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('trajets', TrajetCompanyController::class);
 
     Route::get('company/', [DashboardCompanyController::class, 'voir'])->name('company.profile');
+    Route::put('userUpdate/{key}', [DashboardCompanyController::class, 'updateUser'])->name('admin.update');
 });
 

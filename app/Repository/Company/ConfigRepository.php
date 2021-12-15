@@ -3,15 +3,21 @@
 namespace App\Repository\Company;
 
 use App\Models\User;
+use App\Services\ImageUploader;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class ConfigRepository
 {
-    public function show(string $key): Model|Builder|null
+    use ImageUploader;
+
+    public function updateUser(string $key, $attributes)
     {
-        return User::query()
+        $user = User::query()
             ->where('key', '=', $key)
-            ->first();
+            ->firstOrFail();
+        $user->update([
+
+        ]);
     }
 }

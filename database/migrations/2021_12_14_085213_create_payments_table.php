@@ -17,6 +17,9 @@ return new class extends Migration
                 ->constrained();
             $table->foreignId('booking_id')
                 ->constrained();
+            $table->foreignId('company_id')
+                ->constrained()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

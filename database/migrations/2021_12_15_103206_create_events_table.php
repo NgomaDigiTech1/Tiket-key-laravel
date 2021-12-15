@@ -19,6 +19,9 @@ return new class extends Migration
             $table->date('signing_at')->nullable();
             $table->date('logout_at')->nullable();
             $table->timestamps();
+            $table->foreignId('company_id')
+                ->constrained()
+                ->cascadeOnDelete();
         });
     }
 
