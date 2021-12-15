@@ -23,8 +23,8 @@
                                     <em class="icon ni ni-user-alt"></em>
                                 </div>
                                 <div class="user-info d-none d-xl-block">
-                                    <div class="user-status user-status-active">{{ auth()->user()->name }}</div>
-                                    <div class="user-name dropdown-indicator">{{ auth()->user()->email }}</div>
+                                    <div class="user-status user-status-active">{{ auth()->user()->company->name_company }}</div>
+                                    <div class="user-name dropdown-indicator">{{ auth()->user()->company->email }}</div>
                                 </div>
                             </div>
                         </a>
@@ -35,20 +35,10 @@
                                         <span>{{ substr(auth()->user()->name, 0,2) }}</span>
                                     </div>
                                     <div class="user-info">
-                                        <span class="lead-text">{{ auth()->user()->name }}</span>
-                                        <span class="sub-text">{{ auth()->user()->email }}</span>
+                                        <span class="lead-text">{{ auth()->user()->company->name_company }}</span>
+                                        <span class="sub-text">{{ auth()->user()->company->email }}</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="dropdown-inner">
-                                <ul class="link-list">
-                                    <li>
-                                        <a href="#">
-                                            <em class="icon ni ni-user-alt"></em>
-                                            <span>View Profile</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">

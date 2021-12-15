@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
-    Utilisateur
+    Creation d'un chauffeur
 @endsection
 
 @section('content')
@@ -9,10 +9,10 @@
         <div class="nk-block-head nk-block-head-sm">
             <div class="nk-block-between g-3">
                 <div class="nk-block-head-content">
-                    <h3 class="nk-block-title page-title">Utilisateur</h3>
+                    <h3 class="nk-block-title page-title">Chauffeur</h3>
                 </div>
                 <div class="nk-block-head-content">
-                    <a href="{{ route('admin.users.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
+                    <a href="{{ route('company.chauffeur.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
                         <em class="icon ni ni-arrow-left"></em>
                         <span>Back</span>
                     </a>
@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-aside-wrap">
                     <div class="card-inner card-inner-lg">
-                        @include('admins.pages.users._form')
+                        @include('companies.pages.drivers._form')
                     </div>
                 </div>
             </div>

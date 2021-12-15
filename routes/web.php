@@ -9,7 +9,9 @@ use App\Http\Controllers\Admins\EventLogDashboardController;
 use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\Companies\ConfigCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
+use App\Http\Controllers\Companies\DriverCompanyController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +38,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
 
 Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin']], function () {
     Route::resource('dashboard', DashboardCompanyController::class);
+    Route::resource('chauffeur', DriverCompanyController::class);
 });
 

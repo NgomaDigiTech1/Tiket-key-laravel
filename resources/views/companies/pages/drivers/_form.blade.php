@@ -3,31 +3,21 @@
     <div class="col-md-6 col-lg-6">
         <div class="form-group">
             <div class="form-control-wrap">
-                {!! form_row($form->name) !!}
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-control-wrap">
                 {!! form_row($form->first_name) !!}
             </div>
         </div>
         <div class="form-group">
             <div class="form-control-wrap">
-                {!! form_row($form->email) !!}
+                {!! form_row($form->name) !!}
             </div>
         </div>
         <div class="form-group">
             <div class="form-control-wrap">
-                {!! form_row($form->birthdays) !!}
+                {!! form_row($form->age) !!}
             </div>
         </div>
     </div>
     <div class="col-md-6 col-lg-6">
-        <div class="form-group">
-            <div class="form-control-wrap">
-                {!! form_row($form->picture) !!}
-            </div>
-        </div>
         <div class="form-group">
             <div class="form-control-wrap">
                 {!! form_row($form->phone_number) !!}
@@ -35,12 +25,7 @@
         </div>
         <div class="form-group">
             <div class="form-control-wrap">
-                {!! form_row($form->password) !!}
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-control-wrap">
-                {!! form_row($form->role_id) !!}
+                {!! form_row($form->picture) !!}
             </div>
         </div>
     </div>

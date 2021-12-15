@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
-    Utilisateurs
+    Nos chauffeurs
 @endsection
 
 @section('content')
@@ -10,20 +10,15 @@
             <div class="nk-block-head nk-block-head-sm">
                 <div class="nk-block-between">
                     <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Utilisateur</h3>
+                        <h3 class="nk-block-title page-title">Nos chauffeurs</h3>
                     </div>
                     <div class="nk-block-head-content">
                         <div class="toggle-wrap nk-block-tools-toggle">
                             <div class="toggle-expand-content" data-content="pageMenu">
                                 <ul class="nk-block-tools g-3">
                                     <li class="preview-item">
-                                        <a href="{{ route('admin.users.create') }}" class="btn btn-dim btn-primary btn-sm">
+                                        <a href="{{ route('company.chauffeur.create') }}" class="btn btn-dim btn-primary btn-sm">
                                             <em class="icon ni ni-plus mr-1"></em> Ajouter
-                                        </a>
-                                    </li>
-                                    <li class="preview-item">
-                                        <a href="" class="btn btn-dim btn-secondary btn-sm">
-                                            <em class="icon ni ni-histroy mr-1"></em> Historique
                                         </a>
                                     </li>
                                 </ul>
@@ -49,7 +44,7 @@
                                         <span class="sub-text">Prenom</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
-                                        <span class="sub-text">Email</span>
+                                        <span class="sub-text">Age</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Phone</span>
@@ -60,28 +55,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $user)
+                                @foreach($drivers as $driver)
                                     <tr class="nk-tb-item">
                                         <td class="nk-tb-col tb-col-sm">
                                              <span class="tb-product text-center">
                                                  <img src="{{
-                                                    $user->picture == 'avatar3.png' ?
+                                                    $driver->picture == 'avatar3.png' ?
                                                     asset('admins/images/avatar3.png')  :
-                                                    asset('storage/'.$user->picture)
-                                                 }}" alt="{{ $user->name }}" class="thumb">
+                                                    asset('storage/'.$driver->picture)
+                                                 }}" alt="{{ $driver->name }}" class="thumb">
                                              </span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $user->name ?? "" }}</span>
+                                            <span>{{ $driver->name ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $user->first_name ?? "" }}</span>
+                                            <span>{{ $driver->first_name ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $user->email ?? "" }}</span>
+                                            <span>{{ $driver->age ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $user->phone_number ?? "" }}</span>
+                                            <span>{{ $driver->phone_number ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">
@@ -92,24 +87,22 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <ul class="link-list-opt no-bdr">
-                                                                @if(auth()->user()->role_id != $user->role_id)
-                                                                    <li>
-                                                                        <a href="{{ route('admin.users.edit', $user->key) }}">
-                                                                            <em class="icon ni ni-edit"></em>
-                                                                            <span>Editer</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <form action="{{ route('admin.users.destroy', $user->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
-                                                                            @method('DELETE')
-                                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                            <button type="submit" class="btn btn-dim">
-                                                                                <em class="icon ni ni-lock-alt"></em>
-                                                                                <span>Suspendre</span>
-                                                                            </button>
-                                                                        </form>
-                                                                    </li>
-                                                                @endif
+                                                                <li>
+                                                                    <a href="{{ route('company.chauffeur.edit', $driver->key) }}">
+                                                                        <em class="icon ni ni-edit"></em>
+                                                                        <span>Editer</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <form action="{{ route('company.chauffeur.destroy', $driver->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
+                                                                        @method('DELETE')
+                                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                        <button type="submit" class="btn btn-dim">
+                                                                            <em class="icon ni ni-lock-alt"></em>
+                                                                            <span>Suspendre</span>
+                                                                        </button>
+                                                                    </form>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
