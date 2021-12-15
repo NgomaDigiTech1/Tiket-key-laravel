@@ -45,5 +45,7 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('bus', BusCompanyController::class);
     Route::resource('towns', TownCompanyController::class);
     Route::resource('trajets', TrajetCompanyController::class);
+
+    Route::get('company/', [DashboardCompanyController::class, 'voir'])->name('company.profile');
 });
 

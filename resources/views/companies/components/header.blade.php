@@ -9,13 +9,8 @@
                     <img class="logo-light logo-img" src="{{ asset('app/images/icon.png') }}" srcset="{{ asset('app/images/icon.png') }} 2x" alt="logo">
                 </a>
             </div>
-            <div class="nk-header-search ml-3 ml-xl-0">
-                <em class="icon ni ni-search"></em>
-                <input type="text" class="form-control border-transparent form-focus-none" placeholder="Search anything">
-            </div>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav">
-
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
                             <div class="user-toggle">
@@ -42,6 +37,16 @@
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
+                                    <div class="dropdown-inner">
+                                        <ul class="link-list">
+                                            <li>
+                                                <a href="{{ route('company.company.profile') }}">
+                                                    <em class="icon ni ni-user-alt"></em>
+                                                    <span>View Profile</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <em class="icon ni ni-signout"></em>

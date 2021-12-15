@@ -61,6 +61,14 @@
                         'name' => 'Clients',
                         'icon' => 'ni-money'
                     ])
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Autres</h6>
+                    </li>
+                    @include('admins.components.NavLink', [
+                        'route' => route('company.company.profile'),
+                        'name' => 'Config',
+                        'icon' => 'ni-setting-alt'
+                    ])
                 </ul>
             </div>
         </div>
