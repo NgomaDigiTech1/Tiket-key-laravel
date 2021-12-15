@@ -14,6 +14,7 @@ class TownCompanyRepository extends BaseRepositoryInterface
     public function getContents(): Collection|array
     {
         return Town::query()
+            ->where('company_id', '=', auth()->user()->company->id)
             ->latest()
             ->get();
     }
@@ -21,6 +22,7 @@ class TownCompanyRepository extends BaseRepositoryInterface
     public function show(string $key): Model|Builder
     {
         return Town::query()
+            ->where('company_id', '=', auth()->user()->company->id)
             ->where('key', '=', $key)
             ->firstOrFail();
     }
@@ -29,7 +31,8 @@ class TownCompanyRepository extends BaseRepositoryInterface
     {
         $town = Town::query()
             ->create([
-                'name_town' => $attributes->input('name_town')
+                'name_town' => $attributes->input('name_town'),
+                'company_id' => auth()->user()->company->id
             ]);
         toast("Une nouvelle ville a ete Ajouter", 'success');
         return $town;
@@ -39,7 +42,8 @@ class TownCompanyRepository extends BaseRepositoryInterface
     {
         $town = $this->show($key);
         $town->update([
-            'name_town' => $attributes->input('name_town')
+            'name_town' => $attributes->input('name_town'),
+            'company_id' => auth()->user()->company->id
         ]);
         toast("Une mise a jour a ete effectuer", 'warning');
         return $town;
