@@ -36,6 +36,11 @@
                         'name' => 'Chauffeurs',
                         'icon' => 'ni-focus'
                     ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('company.bus.index'),
+                        'name' => 'Nos Bus',
+                        'icon' => 'ni-truck'
+                    ])
                 </ul>
             </div>
         </div>
