@@ -42,7 +42,12 @@
                     @include('admins.components.NavLink', [
                         'route' => route('admin.towns.index'),
                         'name' => 'Ville',
-                        'icon' => 'ni ni-map'
+                        'icon' => 'ni-map'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.bus.index'),
+                        'name' => 'Nos Bus',
+                        'icon' => 'ni-truck'
                     ])
                 </ul>
             </div>

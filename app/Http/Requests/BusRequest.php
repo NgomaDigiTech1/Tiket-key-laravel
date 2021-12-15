@@ -1,30 +1,27 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BusRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            'code_bus' => ['required', 'min:4', 'string'],
+            'place_number' => ['required', 'min:4', 'integer'],
+            'colors' => ['required'],
+
+            'company_id' => ['required'],
+            'company_id.*' => ['integer', Rule::exists('companies', 'id')]
         ];
     }
 }

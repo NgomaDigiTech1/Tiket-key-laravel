@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('buses', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
-            $table->string('code_bus');
+            $table->string('code_bus')->unique();
             $table->integer('place_number');
             $table->string('colors');
             $table->foreignId('company_id')

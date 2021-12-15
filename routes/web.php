@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\BusDashboardController;
 use App\Http\Controllers\Admins\CompanyDashboardController;
 use App\Http\Controllers\Admins\DashboardController;
 use App\Http\Controllers\Admins\DriverDashboardController;
@@ -23,6 +24,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::put('restoreDriver/{key}', [DriverDashboardController::class, 'restoreDriver'])->name('driver.restore');
     Route::delete('deleteDriver/{key}', [DriverDashboardController::class, 'forceDelete'])->name('driver.force');
     Route::resource('towns', TownDashboardController::class);
+    Route::resource('bus', BusDashboardController::class);
 });
 
 
