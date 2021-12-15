@@ -39,6 +39,11 @@
                         'name' => 'Chauffeurs',
                         'icon' => 'ni-focus'
                     ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.towns.index'),
+                        'name' => 'Ville',
+                        'icon' => 'ni ni-map'
+                    ])
                 </ul>
             </div>
         </div>

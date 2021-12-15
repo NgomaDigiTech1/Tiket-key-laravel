@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Forms;
 
@@ -8,6 +9,9 @@ class TownForm extends Form
 {
     public function buildForm()
     {
-        // Add fields here...
+        $this
+            ->add('name_town', 'text', [
+                'label' => "Nom d'une ville"
+            ]);
     }
 }

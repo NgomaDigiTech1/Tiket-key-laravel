@@ -10,4 +10,7 @@ use JustSteveKing\KeyFactory\Models\Concerns\HasKey;
 class Town extends Model
 {
     use HasFactory, HasKey;
+
+    protected $guarded = [];
+
 }
