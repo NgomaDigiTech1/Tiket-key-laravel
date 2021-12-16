@@ -2,16 +2,36 @@
 
 namespace App\Repository\Company;
 
+use App\Models\Booking;
+use App\Models\Driver;
 use App\Models\Event;
 use App\Models\User;
 use App\Services\ImageUploader;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ConfigRepository
 {
     use ImageUploader;
+
+    public function getJsonReservations(): Collection|array
+    {
+        $bookings = Driver::query()
+            ->where('company_id', '=', auth()->user()->company->id)
+            ->select(
+                DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"),
+                DB::raw("DAY(created_at) as day")
+            )
+            ->where('created_at', '>', Carbon::today()->subDay(6))
+            ->groupBy('day_name','day')
+            ->orderBy('day')
+            ->get();
+        return $bookings;
+    }
 
     public function updateUser(string $key, $attributes): Model|Builder
     {
@@ -58,5 +78,19 @@ class ConfigRepository
                 'user_id' => auth()->id(),
                 'company_id' => auth()->user()->company->id
             ]);
+    }
+
+    public function getUsersByWeek()
+    {
+        return User::select(
+            DB::raw("(COUNT(*)) as count"),
+            DB::raw("DAYNAME(created_at) as dayname")
+        )
+            ->whereBetween('created_at',
+                [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]
+            )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('dayname')
+            ->get();
     }
 }

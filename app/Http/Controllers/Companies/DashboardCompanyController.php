@@ -19,7 +19,15 @@ class DashboardCompanyController extends Controller
 
     public function index(): Factory|View|Application
     {
-        return view('companies.company');
+        $bookings = $this->repository->getJsonReservations();
+        $data = [];
+
+        foreach($bookings as $row) {
+            $data['label'][] = $row->day_name;
+            $data['data'][] = (int) $row->count;
+        }
+        $data['chart_data'] = json_encode($data);
+        return view('companies.company', compact('data'));
     }
 
     public function voir(): Factory|View|Application
