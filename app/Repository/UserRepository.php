@@ -9,6 +9,7 @@ use App\Services\ImageUploader;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends Interfaces\BaseRepositoryInterface
@@ -31,8 +32,13 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
             ->firstOrFail();
     }
 
-    public function create($attributes): Model|Builder
+    public function create($attributes): Model|Builder|RedirectResponse
     {
+        $user = $this->getEmailForUsers($attributes);
+        if ($user){
+            toast("Un utilisateur a ete ajouter", 'error');
+            return redirect()->route('admin.users.create');
+        }
         $user = User::query()
             ->create([
                 'name' => $attributes->input('name'),
@@ -78,6 +84,13 @@ class UserRepository extends Interfaces\BaseRepositoryInterface
             'role_id' => $attributes->input('role_id'),
             'picture' => self::uploadFiles($attributes)
         ]);
+    }
+
+    private function getEmailForUsers($attributes): Model|Builder|null
+    {
+        return User::query()
+            ->where('email', '=', $attributes->input('email'))
+            ->first();
     }
 
 }

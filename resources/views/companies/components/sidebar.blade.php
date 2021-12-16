@@ -52,12 +52,12 @@
                         'icon' => 'ni-map'
                     ])
                     @include('admins.components.NavLink', [
-                        'route' => route('admin.booking.index'),
+                        'route' => route('company.book.index'),
                         'name' => 'Reservation',
                         'icon' => 'ni-calendar-booking-fill'
                     ])
                     @include('admins.components.NavLink', [
-                        'route' => route('admin.booking.index'),
+                        'route' => route('company.clients.index'),
                         'name' => 'Clients',
                         'icon' => 'ni-user-fill-c'
                     ])

@@ -64,7 +64,7 @@
                         'icon' => 'ni-calendar-booking'
                     ])
                     @include('admins.components.NavLink', [
-                        'route' => route('admin.booking.index'),
+                        'route' => route('admin.travellers.index'),
                         'name' => 'Clients',
                         'icon' => 'ni-users'
                     ])

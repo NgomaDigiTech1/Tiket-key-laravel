@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
-    Reservation
+    Chauffeur
 @endsection
 
 @section('content')
@@ -10,10 +10,10 @@
             <div class="nk-block-head nk-block-head-sm">
                 <div class="nk-block-between g-3">
                     <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Reservation / {{ $driver->name ?? "" }}</h3>
+                        <h3 class="nk-block-title page-title">Chauffeur / {{ $driver->name ?? "" }}</h3>
                     </div>
                     <div class="nk-block-head-content">
-                        <a href="{{ route('admin.booking.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
+                        <a href="{{ route('admin.drivers.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
                             <em class="icon ni ni-arrow-left"></em>
                             <span>Back</span>
                         </a>

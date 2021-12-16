@@ -8,12 +8,15 @@ use App\Http\Controllers\Admins\DriverDashboardController;
 use App\Http\Controllers\Admins\EventLogDashboardController;
 use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
+use App\Http\Controllers\Admins\TravellerDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\Companies\BookingCompanyController;
 use App\Http\Controllers\Companies\BusCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
 use App\Http\Controllers\Companies\DriverCompanyController;
 use App\Http\Controllers\Companies\TownCompanyController;
 use App\Http\Controllers\Companies\TrajetCompanyController;
+use App\Http\Controllers\Companies\TravellerCompanyController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +37,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::resource('bus', BusDashboardController::class);
     Route::resource('trajets', TrajetDashboardController::class);
     Route::resource('booking', BookingDashboardController::class);
+    Route::resource('travellers', TravellerDashboardController::class);
     Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });
 
@@ -44,6 +48,8 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('bus', BusCompanyController::class);
     Route::resource('towns', TownCompanyController::class);
     Route::resource('trajets', TrajetCompanyController::class);
+    Route::resource('book', BookingCompanyController::class);
+    Route::resource('clients', TravellerCompanyController::class);
 
     Route::get('company', [DashboardCompanyController::class, 'voir'])->name('company.profile');
     Route::put('userUpdate/{key}', [DashboardCompanyController::class, 'updateUser'])

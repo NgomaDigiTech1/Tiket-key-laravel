@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.company')
 
 @section('title')
-    Reservation
+    Client
 @endsection
 
 @section('content')
@@ -10,10 +10,10 @@
             <div class="nk-block-head nk-block-head-sm">
                 <div class="nk-block-between g-3">
                     <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Reservation / {{ $driver->name ?? "" }}</h3>
+                        <h3 class="nk-block-title page-title">Client / {{ $traveller->name ?? "" }}</h3>
                     </div>
                     <div class="nk-block-head-content">
-                        <a href="{{ route('admin.booking.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
+                        <a href="{{ route('company.clients.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
                             <em class="icon ni ni-arrow-left"></em>
                             <span>Back</span>
                         </a>
@@ -22,15 +22,6 @@
             </div>
             <div class="nk-block">
                 <div class="nk-block nk-block-lg">
-                    <div class="justify-content text-center p-2">
-                        <img
-                            src="{{ asset('storage/'.$driver->picture) }}"
-                            alt="{{ $driver->name_company }}"
-                            class="img-fluid img-thumbnail rounded"
-                            height="20%"
-                            width="20%"
-                        >
-                    </div>
                     <div class="card">
                         <div class="card-inner">
                             <div class="tab-content">
@@ -40,13 +31,13 @@
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
                                                     <span class="profile-ud-label">Non chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->first_name ?? "" }}</span>
+                                                    <span class="profile-ud-value">{{ $traveller->first_name ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
                                                     <span class="profile-ud-label">Prenom chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->name ?? "" }}</span>
+                                                    <span class="profile-ud-value">{{ $traveller->name ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
