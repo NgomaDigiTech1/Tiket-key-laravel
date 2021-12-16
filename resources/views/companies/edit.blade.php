@@ -14,6 +14,7 @@
                     </div>
                 </div>
             </div>
+            @if(auth()->id() == auth()->user()->company->user_id)
             <div class="nk-block nk-block-lg">
                 <div class="card card-bordered">
                     <ul class="nav nav-tabs nav-tabs-mb-icon nav-tabs-card">
@@ -240,6 +241,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

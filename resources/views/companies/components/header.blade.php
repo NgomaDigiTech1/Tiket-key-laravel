@@ -2,11 +2,13 @@
     <div class="container-fluid">
         <div class="nk-header-wrap">
             <div class="nk-menu-trigger d-xl-none ml-n1">
-                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu">
+                    <em class="icon ni ni-menu-squared"></em>
+                </a>
             </div>
             <div class="nk-header-brand d-xl-none">
                 <a href="{{ route('company.dashboard.index') }}" class="logo-link">
-                    <img class="logo-light logo-img" src="{{ asset('app/images/icon.png') }}" srcset="{{ asset('app/images/icon.png') }} 2x" alt="logo">
+                    <img class="logo-light logo-img" src="{{ asset('storage/'.auth()->user()->company->picture) }}" srcset="{{ asset('storage/'.auth()->user()->company->picture) }} 2x" alt="logo">
                 </a>
             </div>
             <div class="nk-header-tools">
@@ -15,7 +17,7 @@
                         <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
                             <div class="user-toggle">
                                 <div class="user-avatar sm">
-                                    <em class="icon ni ni-user-alt"></em>
+                                    <em class="icon ni ni-user-alt-fill"></em>
                                 </div>
                                 <div class="user-info d-none d-xl-block">
                                     <div class="user-status user-status-active">{{ auth()->user()->company->name_company }}</div>
@@ -31,7 +33,6 @@
                                     </div>
                                     <div class="user-info">
                                         <span class="lead-text">{{ auth()->user()->company->name_company }}</span>
-                                        <span class="sub-text">{{ auth()->user()->company->email }}</span>
                                     </div>
                                 </div>
                             </div>

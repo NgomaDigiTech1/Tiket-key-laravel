@@ -26,7 +26,7 @@
                     @include('admins.components.NavLink', [
                         'route' => route('company.dashboard.index'),
                         'name' => 'Dashboard',
-                        'icon' => 'ni-menu-alt'
+                        'icon' => 'ni-grid-fill-c'
                     ])
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">{{ auth()->user()->company->name_company }}</h6>
@@ -34,7 +34,7 @@
                     @include('admins.components.NavLink', [
                         'route' => route('company.chauffeur.index'),
                         'name' => 'Chauffeurs',
-                        'icon' => 'ni-focus'
+                        'icon' => 'ni-users-fill'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('company.bus.index'),
@@ -44,22 +44,22 @@
                     @include('admins.components.NavLink', [
                         'route' => route('company.towns.index'),
                         'name' => 'Ville',
-                        'icon' => 'ni-map'
+                        'icon' => 'ni-location'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('company.trajets.index'),
                         'name' => 'Ligne de transport',
-                        'icon' => 'ni-location'
+                        'icon' => 'ni-map'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.booking.index'),
                         'name' => 'Reservation',
-                        'icon' => 'ni-exchange'
+                        'icon' => 'ni-calendar-booking-fill'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.booking.index'),
                         'name' => 'Clients',
-                        'icon' => 'ni-money'
+                        'icon' => 'ni-user-fill-c'
                     ])
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Autres</h6>
@@ -67,7 +67,7 @@
                     @include('admins.components.NavLink', [
                         'route' => route('company.company.profile'),
                         'name' => 'Config',
-                        'icon' => 'ni-setting-alt'
+                        'icon' => 'ni-setting-alt-fill'
                     ])
                 </ul>
             </div>
