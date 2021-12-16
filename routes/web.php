@@ -41,8 +41,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });
 
-
-Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin']], function () {
+Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin', 'verified']], function () {
     Route::resource('dashboard', DashboardCompanyController::class);
     Route::resource('chauffeur', DriverCompanyController::class);
     Route::resource('bus', BusCompanyController::class);

@@ -65,7 +65,7 @@
                 labels: cData.label,
                 datasets: [
                     {
-                        label: "Users Count",
+                        label: "Reservations",
                         data: cData.data,
                         backgroundColor: [
                             "#DEB887",
@@ -94,7 +94,6 @@
                 type: "bar",
                 data: data,
             });
-
         });
     </script>
 @endsection
