@@ -13,15 +13,6 @@
                         <h3 class="nk-block-title page-title">Configuration de l'application</h3>
                     </div>
                 </div>
-                <div class="justify-content text-center p-2">
-                    <img
-                        src="{{ asset('storage/'.auth()->user()->company->picture) }}"
-                        alt="{{ auth()->user()->company->name_company }}"
-                        class="img-fluid img-thumbnail rounded"
-                        height="20%"
-                        width="20%"
-                    >
-                </div>
             </div>
             <div class="nk-block nk-block-lg">
                 <div class="card card-bordered">
@@ -42,26 +33,100 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="site">
                             <div class="card-inner pt-0">
-                                <form action="#" class="gy-3 form-settings">
-                                    <div class="row g-3 align-center">
-                                        <div class="col-lg-5">
+                                <form method="POST" action="{{ route('company.company.update', auth()->user()->company->key) }}" class="mt-2" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="row g-gs">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="comp-name">Company Name</label>
-                                                <span class="form-note">Specify the name of your Company.</span></div>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="form-group">
+                                                <label class="form-label" for="name_company">Nom Company</label>
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="comp-name" value="Company Name">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name_company"
+                                                        name="name_company"
+                                                        value="{{ auth()->user()->company->name_company }}"
+                                                        placeholder="Nom administrateur"
+                                                    >
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row g-3">
-                                        <div class="col-lg-7">
-                                            <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-lg btn-primary">Update</button>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="picture">Votre logo</label>
+                                                <div class="form-control-wrap">
+                                                    <input
+                                                        type="file"
+                                                        class="form-control"
+                                                        id="picture"
+                                                        name="picture"
+                                                        value="{{ auth()->user()->company->picture }}"
+                                                        placeholder="Prenom"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="address">Addresse</label>
+                                                <div class="form-control-wrap">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="address"
+                                                        name="address"
+                                                        value="{{ auth()->user()->company->address }}"
+                                                        placeholder="Prenom"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="phone_number">Numero telephone</label>
+                                                <div class="form-control-wrap">
+                                                    <input
+                                                        type="tel"
+                                                        class="form-control"
+                                                        id="phone_number"
+                                                        name="phone_number"
+                                                        value="{{ auth()->user()->company->phone_number }}"
+                                                        placeholder="Numero telephone"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="form-label" for="email">Addresse email</label>
+                                                <div class="form-control-wrap">
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id="email"
+                                                        name="email"
+                                                        value="{{ auth()->user()->company->email }}"
+                                                        placeholder="picture"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="form-label" for="description">Description de votre entreprise</label>
+                                                <div class="form-control-wrap">
+                                                <textarea
+                                                    class="form-control form-control-sm"
+                                                    id="description"
+                                                    name="description"
+                                                    placeholder="Une breve description de votre entreprise">{{ auth()->user()->company->description }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-sm btn-outline-primary">Enregistrer</button>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +189,7 @@
                                                 <label class="form-label" for="phone_number">Numero telephone</label>
                                                 <div class="form-control-wrap">
                                                     <input
-                                                        type="date"
+                                                        type="tel"
                                                         class="form-control"
                                                         id="phone_number"
                                                         name="phone_number"

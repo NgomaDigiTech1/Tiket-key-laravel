@@ -15,6 +15,11 @@ class Trajet extends Model
 
     protected $guarded = [];
 
+    public function getPrices(): string
+    {
+        return number_format($this->prices, 1, ',', ' ').'FC';
+    }
+
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class, 'company_id');

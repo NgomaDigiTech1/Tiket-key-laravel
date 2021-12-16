@@ -46,7 +46,11 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('towns', TownCompanyController::class);
     Route::resource('trajets', TrajetCompanyController::class);
 
-    Route::get('company/', [DashboardCompanyController::class, 'voir'])->name('company.profile');
-    Route::put('userUpdate/{key}', [DashboardCompanyController::class, 'updateUser'])->name('admin.update');
+    Route::get('company', [DashboardCompanyController::class, 'voir'])->name('company.profile');
+    Route::put('userUpdate/{key}', [DashboardCompanyController::class, 'updateUser'])
+        ->name('admin.update');
+
+    Route::put('companyUpdate/{key}', [DashboardCompanyController::class, 'updateCompany'])
+        ->name('company.update');
 });
 

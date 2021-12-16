@@ -67,7 +67,7 @@
                                             <span>{{ $trajet->arrival_city ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $trajet->prices ?? "" }}</span>
+                                            <span>{{ $trajet->getPrices() ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>
