@@ -24,7 +24,7 @@ class DriverRepository extends Interfaces\BaseRepositoryInterface
     {
         return Driver::query()
             ->where('key', '=', $key)
-            ->first();
+            ->firstOrFail();
     }
 
     public function create($attributes): Model|Builder
@@ -67,7 +67,7 @@ class DriverRepository extends Interfaces\BaseRepositoryInterface
             ->get();
     }
 
-    public function restore(string $key): ?bool
+    public function restore(string $key)
     {
         $driver = Driver::withTrashed()
             ->where('key', '=', $key)

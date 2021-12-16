@@ -77,10 +77,14 @@
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <ul class="link-list-opt no-bdr">
                                                                 <li>
-                                                                    <a href="{{ route('admin.drivers.show', $driver->key) }}">
-                                                                        <em class="icon ni ni-eye"></em>
-                                                                        <span>Voir</span>
-                                                                    </a>
+                                                                    <form action="{{ route('admin.driver.restore', $driver->key) }}" method="POST" class="d-inline">
+                                                                        @method('PUT')
+                                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                        <button type="submit" class="btn text-center">
+                                                                            <em class="icon ni ni-undo"></em>
+                                                                            <span>Restaurer</span>
+                                                                        </button>
+                                                                    </form>
                                                                 </li>
                                                             </ul>
                                                         </div>

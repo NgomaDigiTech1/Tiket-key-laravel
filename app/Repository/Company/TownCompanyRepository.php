@@ -8,6 +8,7 @@ use App\Repository\Interfaces\BaseRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 
 class TownCompanyRepository extends BaseRepositoryInterface
 {
@@ -27,8 +28,14 @@ class TownCompanyRepository extends BaseRepositoryInterface
             ->firstOrFail();
     }
 
-    public function create($attributes): Model|Builder
+    public function create($attributes): Model|Builder|RedirectResponse
     {
+        $town = $this->getNameTown($attributes);
+
+        if ($town){
+            toast("Cette ville existe deja", 'error');
+            return redirect()->back();
+        }
         $town = Town::query()
             ->create([
                 'name_town' => $attributes->input('name_town'),
@@ -55,5 +62,13 @@ class TownCompanyRepository extends BaseRepositoryInterface
         $town->delete();
         toast("Ville supprimer avec success", 'info');
         return $town;
+    }
+
+    private function getNameTown($attributes): Model|Builder|null
+    {
+        return Town::query()
+            ->where('company_id', '=', auth()->user()->company->id)
+            ->where('name_town', '=', $attributes->input('name_town'))
+            ->first();
     }
 }

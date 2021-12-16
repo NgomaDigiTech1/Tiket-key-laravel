@@ -29,7 +29,7 @@ class TrajetForm extends Form
                 'label' => "Prix du voyage"
             ])
             ->add('start_time', Field::TIME, [
-                'label' => "Heure de depart"
+                'label' => "Heure de depart",
             ])
             ->add('arrival_time', Field::TIME, [
                 'label' => "Heure d'arriver"

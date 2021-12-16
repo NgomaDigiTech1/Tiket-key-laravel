@@ -69,16 +69,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group mt-3 text-center">
-                                            @if($driver->deleted_at)
-                                                <form action="{{ route('admin.driver.restore', $driver->key) }}" method="POST" class="d-inline">
-                                                    @method('PUT')
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-sm btn-outline-warning">
-                                                        <em class="icon ni ni-undo"></em>
-                                                        <span>Restaurer</span>
-                                                    </button>
-                                                </form>
-                                            @else
                                                 <form action="{{ route('admin.driver.force', $driver->key) }}" method="POST" class="d-inline">
                                                     @method('DELETE')
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -86,7 +76,6 @@
                                                         <em class="icon ni ni-cross-circle"></em> Supprimer
                                                     </button>
                                                 </form>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>

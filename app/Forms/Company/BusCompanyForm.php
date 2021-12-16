@@ -24,9 +24,17 @@ class BusCompanyForm extends Form
             ])
             ->add('driver_id', Field::CHOICE, [
                 'label' => 'Chauffeur',
-                'choices' => Driver::all()->pluck( 'first_name', 'id')->toArray(),
+                'choices' => $this->getDrivers(),
                 'multiple' => false,
                 'attr' => ['class' => 'form-select']
             ]);
+    }
+
+    private function getDrivers(): array
+    {
+        return Driver::query()
+            ->where('company_id', '=', auth()->user()->company->id)
+            ->pluck( 'first_name', 'id')
+            ->toArray();
     }
 }

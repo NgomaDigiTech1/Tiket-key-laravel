@@ -63,8 +63,8 @@
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Gestionnaire</span>
-                                                    <span class="profile-ud-value">{{ $company->user->first_name }}</span>
+                                                    <span class="profile-ud-label">Administrateur</span>
+                                                    <span class="profile-ud-value">{{ strtoupper($company->user->first_name) ?? "" }}</span>
                                                 </div>
                                             </div>
                                         </div>

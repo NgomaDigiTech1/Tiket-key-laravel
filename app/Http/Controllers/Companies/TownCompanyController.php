@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Companies;
 
+use App\Forms\Company\TownCompanyForm;
 use App\Forms\TownForm;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Company\TownCompanyRequest;
 use App\Http\Requests\TownRequest;
 use App\Repository\Company\TownCompanyRepository;
 use App\Repository\TownRepository;
@@ -30,14 +32,14 @@ class TownCompanyController extends Controller
 
     public function create(): Factory|View|Application
     {
-        $form = $this->builder->create(TownForm::class, [
+        $form = $this->builder->create(TownCompanyForm::class, [
             'method' => 'POST',
             'url' => route('company.towns.store')
         ]);
         return view('companies.pages.towns.create', compact('form'));
     }
 
-    public function store(TownRequest $attributes): RedirectResponse
+    public function store(TownCompanyRequest $attributes): RedirectResponse
     {
         $this->repository->create($attributes);
         return redirect()->route('company.towns.index');
@@ -46,7 +48,7 @@ class TownCompanyController extends Controller
     public function edit(string $key): Factory|View|Application
     {
         $town = $this->repository->show($key);
-        $form = $this->builder->create(TownForm::class, [
+        $form = $this->builder->create(TownCompanyForm::class, [
             'method' => 'PUT',
             'url' => route('company.towns.update', $town->key),
             'model' => $town
@@ -54,7 +56,7 @@ class TownCompanyController extends Controller
         return view('companies.pages.towns.create', compact('form', 'town'));
     }
 
-    public function update(string $key, TownRequest $attributes): RedirectResponse
+    public function update(string $key, TownCompanyRequest $attributes): RedirectResponse
     {
         $this->repository->update($key, $attributes);
         return redirect()->route('company.towns.index');

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Forms;
 
 use App\Models\Role;
+use App\Models\User;
 use Kris\LaravelFormBuilder\Field;
 use Kris\LaravelFormBuilder\Form;
 
@@ -34,9 +35,17 @@ class UserForm extends Form
             ])
             ->add('role_id', Field::CHOICE, [
                 'label' => 'Role Utilisateur',
-                'choices' => Role::all()->pluck( 'name', 'id')->toArray(),
+                'choices' => $this->getRoles(),
                 'multiple' => false,
                 'attr' => ['class' => 'form-select']
             ]);
+    }
+
+    private function getRoles(): array
+    {
+        return Role::query()
+            ->where('id', '!=', User::ADMIN_ROLE)
+            ->pluck( 'name', 'id')
+            ->toArray();
     }
 }

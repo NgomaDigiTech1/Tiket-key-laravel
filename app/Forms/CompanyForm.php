@@ -29,9 +29,17 @@ class CompanyForm extends Form
             ])
             ->add('user_id', Field::CHOICE, [
                 'label' => 'Gestionnaire',
-                'choices' => User::all()->pluck( 'first_name', 'id')->toArray(),
+                'choices' => $this->getAdmins(),
                 'multiple' => false,
                 'attr' => ['class' => 'form-select']
             ]);
+    }
+
+    private function getAdmins(): array
+    {
+        return User::query()
+            ->where('role_id', '!=', User::ADMIN_ROLE)
+            ->pluck( 'first_name', 'id')
+            ->toArray();
     }
 }

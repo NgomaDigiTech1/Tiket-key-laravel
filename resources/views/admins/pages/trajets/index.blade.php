@@ -70,10 +70,20 @@
                                             <span>{{ $trajet->prices ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $trajet->start_time ?? "" }}</span>
+                                            <span>
+                                                {{
+                                                    \Carbon\Carbon::parse($trajet->start_time, 'UTC')
+                                                    ->isoFormat('HH:mm A') ?? ""
+                                                }}
+                                            </span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $trajet->arrival_time ?? "" }}</span>
+                                            <span>
+                                                {{
+                                                    \Carbon\Carbon::parse($trajet->arrival_time, 'UTC')
+                                                    ->isoFormat('HH:mm A') ?? ""
+                                                }}
+                                            </span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ strtoupper($trajet->company->name_company) ?? "" }}</span>
