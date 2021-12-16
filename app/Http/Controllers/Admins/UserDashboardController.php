@@ -49,7 +49,7 @@ final class UserDashboardController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    public function edit(string $key)
+    public function edit(string $key): Factory|View|Application
     {
         $user = $this->repository->show($key);
         $form = $this->builder->create(UserForm::class, [

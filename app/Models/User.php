@@ -16,6 +16,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasKey;
 
+    const ADMIN_ROLE = 2;
+    const SUPERADMIN_ROLE = 1;
+
     protected $guarded = [];
 
     protected $hidden = [

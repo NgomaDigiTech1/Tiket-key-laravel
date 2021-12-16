@@ -18,8 +18,8 @@ class UserRequest extends FormRequest
         return [
             'name' => ['required', 'min:4'],
             'first_name' => ['required', 'string', 'min:4'],
-            'picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
-            'email' => ['required', 'min:4', 'email'],
+            'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'email' => ['required', 'email'],
             'birthdays' => ['required', 'date:Y-m-d', 'before:'.now()->addYears(18)->toDateString()],
             'password' => ['required', 'min:6'],
             'phone_number' => ['required', 'min:9'],
