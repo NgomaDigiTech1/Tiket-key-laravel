@@ -27,6 +27,9 @@ class DriverForm extends Form
             ->add('picture', 'file', [
                 'label' => "Photo de profile"
             ])
+            ->add('address', 'text', [
+                'label' => "Adresse physique"
+            ])
             ->add('company_id',Field::CHOICE, [
                 'label' => 'Gestionnaire',
                 'choices' => Company::all()->pluck( 'name_company', 'id')->toArray(),

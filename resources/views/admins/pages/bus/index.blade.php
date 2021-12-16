@@ -46,6 +46,9 @@
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Company</span>
                                     </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Chauffeur</span>
+                                    </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
                                         <span class="sub-text">Actions</span>
                                     </th>
@@ -69,6 +72,9 @@
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ strtoupper($bus->company->name_company) ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ strtoupper($bus->driver->first_name) ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">

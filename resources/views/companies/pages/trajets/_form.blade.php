@@ -11,12 +11,21 @@
                 {!! form_row($form->arrival_city) !!}
             </div>
         </div>
+        <div class="form-group">
+            <div class="form-control-wrap">
+                {!! form_row($form->start_time) !!}
+            </div>
+        </div>
     </div>
     <div class="col-md-6 col-lg-6">
-
         <div class="form-group">
             <div class="form-control-wrap">
                 {!! form_row($form->prices) !!}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-control-wrap">
+                {!! form_row($form->arrival_time) !!}
             </div>
         </div>
     </div>

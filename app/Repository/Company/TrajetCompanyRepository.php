@@ -34,7 +34,9 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
                 'starting_city' => $attributes->input('starting_city'),
                 'arrival_city' => $attributes->input('arrival_city'),
                 'prices' => $attributes->input('prices'),
-                'company_id' => auth()->user()->company->id
+                'company_id' => auth()->user()->company->id,
+                'start_time' => $attributes->input('start_time'),
+                'arrival_time' => $attributes->input('arrival_time'),
             ]);
         toast("Une nouvelle destination a ete ajouter", 'success');
         return $trajet;
@@ -48,6 +50,8 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
             'arrival_city' => $attributes->input('arrival_city'),
             'company_id' => auth()->user()->company->id,
             'prices' => $attributes->input('prices'),
+            'start_time' => $attributes->input('start_time'),
+            'arrival_time' => $attributes->input('arrival_time'),
         ]);
         toast("Une mise a jours a ete faite sur une  destination", 'warning');
         return $trajet;

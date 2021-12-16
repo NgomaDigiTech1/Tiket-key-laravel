@@ -16,6 +16,11 @@
                 {!! form_row($form->age) !!}
             </div>
         </div>
+        <div class="form-group">
+            <div class="form-control-wrap">
+                {!! form_row($form->address) !!}
+            </div>
+        </div>
     </div>
     <div class="col-md-6 col-lg-6">
         <div class="form-group">

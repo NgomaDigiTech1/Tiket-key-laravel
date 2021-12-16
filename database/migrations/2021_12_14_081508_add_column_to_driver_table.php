@@ -14,6 +14,7 @@ return new class extends Migration
                 ->after('picture')
                 ->constrained()
                 ->cascadeOnDelete();
+            $table->string('address');
         });
     }
 

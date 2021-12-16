@@ -27,8 +27,8 @@ class Booking extends Model
         return $this->belongsTo(Trajet::class, 'trajet_id');
     }
 
-    public function payment(): BelongsTo
+    public function company(): BelongsTo
     {
-        return $this->belongsTo(Payment::class, 'booking_id');
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

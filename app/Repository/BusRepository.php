@@ -36,6 +36,7 @@ class BusRepository extends Interfaces\BaseRepositoryInterface
                 'place_number' => $attributes->input('place_number'),
                 'colors' => $attributes->input('colors'),
                 'company_id' => $attributes->input('company_id'),
+                'driver_id' => $attributes->input('driver_id')
             ]);
         toast("Un nouveau bus a ete ajouter a une company",'success');
         return $bus;
@@ -49,6 +50,7 @@ class BusRepository extends Interfaces\BaseRepositoryInterface
             'place_number' => $attributes->input('place_number'),
             'colors' => $attributes->input('colors'),
             'company_id' => $attributes->input('company_id'),
+            'driver_id' => $attributes->input('driver_id')
         ]);
         toast("Une mise a jour a ete effectuer sur un bus", 'warning');
         return $bus;

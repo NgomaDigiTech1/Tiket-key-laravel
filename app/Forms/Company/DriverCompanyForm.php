@@ -23,6 +23,9 @@ class DriverCompanyForm extends Form
             ->add('phone_number', 'tel', [
                 'label' => "Numero de telephone"
             ])
+            ->add('address', 'text', [
+                'label' => "Adresse physique"
+            ])
             ->add('picture', 'file', [
                 'label' => "Photo de profile"
             ]);

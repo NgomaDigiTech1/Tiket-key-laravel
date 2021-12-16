@@ -21,6 +21,7 @@ class DriverCompanyRequest extends FormRequest
             'age' => ['required', 'integer'],
             'phone_number' => ['required', 'min:9', 'unique:drivers'],
             'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'address' => ['required', 'min:5'],
         ];
     }
 }

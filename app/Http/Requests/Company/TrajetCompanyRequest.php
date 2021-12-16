@@ -19,6 +19,8 @@ class TrajetCompanyRequest extends FormRequest
             'starting_city' => ['required', Rule::exists('towns', 'name_town')],
             'arrival_city' => ['required', Rule::exists('towns', 'name_town')],
             'prices' => ['required', 'integer', 'min:3'],
+            'start_time' => ['required', 'date_format:H:i'],
+            'arrival_time' => ['required', 'date_format:H:i|after:start_time'],
         ];
     }
 }

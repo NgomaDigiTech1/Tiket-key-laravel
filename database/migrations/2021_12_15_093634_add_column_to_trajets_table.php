@@ -11,6 +11,8 @@ return new class extends Migration
     {
         Schema::table('trajets', function (Blueprint $table) {
             $table->integer('prices');
+            $table->time('start_time')->nullable();
+            $table->time('arrival_time')->nullable();
         });
     }
 

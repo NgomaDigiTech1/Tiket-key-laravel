@@ -28,6 +28,11 @@
                 {!! form_row($form->picture) !!}
             </div>
         </div>
+        <div class="form-group">
+            <div class="form-control-wrap">
+                {!! form_row($form->address) !!}
+            </div>
+        </div>
     </div>
 </div>
 <div class="form-group mt-3">

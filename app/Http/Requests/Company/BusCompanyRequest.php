@@ -13,7 +13,7 @@ class BusCompanyRequest extends FormRequest
         return true;
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'code_bus' => ['required', 'min:4', 'string'],

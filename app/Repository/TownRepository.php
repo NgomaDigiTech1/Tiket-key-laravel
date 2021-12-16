@@ -28,7 +28,8 @@ class TownRepository extends Interfaces\BaseRepositoryInterface
     {
         $town = Town::query()
             ->create([
-                'name_town' => $attributes->input('name_town')
+                'name_town' => $attributes->input('name_town'),
+                'company_id' => $attributes->input('company_id')
             ]);
         toast("Une nouvelle ville a ete Ajouter", 'success');
         return $town;
@@ -38,7 +39,8 @@ class TownRepository extends Interfaces\BaseRepositoryInterface
     {
         $town = $this->show($key);
         $town->update([
-            'name_town' => $attributes->input('name_town')
+            'name_town' => $attributes->input('name_town'),
+            'company_id' => $attributes->input('company_id')
         ]);
         toast("Une mise a jour a ete effectuer", 'warning');
         return $town;

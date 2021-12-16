@@ -39,7 +39,8 @@ class DriverCompanyRepository extends BaseRepositoryInterface
                 'age' => $attributes->input('age'),
                 'phone_number' => $attributes->input('phone_number'),
                 'picture' => self::uploadFiles($attributes) ?? "image.png",
-                'company_id' => auth()->user()->company->id
+                'company_id' => auth()->user()->company->id,
+                'address' => $attributes->input('address')
             ]);
         toast("Un chauffeur a ete ajouter a la liste", 'success');
         return $driver;
@@ -70,7 +71,8 @@ class DriverCompanyRepository extends BaseRepositoryInterface
             'age' => $attributes->input('age'),
             'phone_number' => $attributes->input('phone_number'),
             'picture' => self::uploadFiles($attributes) ?? "image.png",
-            'company_id' => auth()->user()->company->id
+            'company_id' => auth()->user()->company->id,
+            'address' => $attributes->input('address')
         ]);
     }
 }

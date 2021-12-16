@@ -49,6 +49,9 @@
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Phone</span>
                                     </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Adresse</span>
+                                    </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
                                         <span class="sub-text">Actions</span>
                                     </th>
@@ -77,6 +80,9 @@
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ $driver->phone_number ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $driver->address ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">

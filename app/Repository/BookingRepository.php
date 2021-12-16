@@ -14,7 +14,7 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
     public function getContents(): Collection|array
     {
         return Booking::query()
-            ->with(['traveller', 'trajet'])
+            ->with(['traveller', 'trajet', 'company'])
             ->latest()
             ->get();
     }
@@ -24,7 +24,7 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
         $booking = Booking::query()
             ->where('key', '=', $key)
             ->first();
-        $booking->load(['traveller', 'trajet']);
+        $booking->load(['traveller', 'trajet', 'company']);
         return $booking;
     }
 

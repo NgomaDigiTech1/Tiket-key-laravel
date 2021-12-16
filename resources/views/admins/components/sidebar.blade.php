@@ -19,7 +19,7 @@
                     @include('admins.components.NavLink', [
                         'route' => route('admin.dashboard.index'),
                         'name' => 'Dashboard',
-                        'icon' => 'ni-menu-alt'
+                        'icon' => 'ni-grid'
                     ])
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Administration</h6>
@@ -37,12 +37,12 @@
                     @include('admins.components.NavLink', [
                         'route' => route('admin.drivers.index'),
                         'name' => 'Chauffeurs',
-                        'icon' => 'ni-focus'
+                        'icon' => 'ni-pie-alt'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.towns.index'),
                         'name' => 'Ville',
-                        'icon' => 'ni-map'
+                        'icon' => 'ni-location'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.bus.index'),
@@ -52,7 +52,7 @@
                     @include('admins.components.NavLink', [
                         'route' => route('admin.trajets.index'),
                         'name' => 'Ligne de transport',
-                        'icon' => 'ni-location'
+                        'icon' => 'ni-map'
                     ])
 
                     <li class="nk-menu-heading">
@@ -61,12 +61,12 @@
                     @include('admins.components.NavLink', [
                         'route' => route('admin.booking.index'),
                         'name' => 'Reservation',
-                        'icon' => 'ni-exchange'
+                        'icon' => 'ni-calendar-booking'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.booking.index'),
                         'name' => 'Clients',
-                        'icon' => 'ni-money'
+                        'icon' => 'ni-users'
                     ])
                 </ul>
             </div>

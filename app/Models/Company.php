@@ -34,4 +34,14 @@ class Company extends Model
     {
         return $this->hasMany(Trajet::class);
     }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function travellers(): HasMany
+    {
+        return $this->hasMany(Traveller::class);
+    }
 }

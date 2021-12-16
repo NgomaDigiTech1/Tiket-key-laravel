@@ -44,6 +44,12 @@
                                         <span class="sub-text">Montant</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Heure de depart</span>
+                                    </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Heure d'arriver</span>
+                                    </th>
+                                    <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Agence de transport</span>
                                     </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
@@ -62,6 +68,12 @@
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ $trajet->prices ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $trajet->start_time ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $trajet->arrival_time ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ strtoupper($trajet->company->name_company) ?? "" }}</span>

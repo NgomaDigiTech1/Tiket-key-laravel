@@ -21,7 +21,10 @@ class BusRequest extends FormRequest
             'colors' => ['required'],
 
             'company_id' => ['required'],
-            'company_id.*' => ['integer', Rule::exists('companies', 'id')]
+            'company_id.*' => ['integer', Rule::exists('companies', 'id')],
+
+            'driver_id' => ['required'],
+            'driver_id.*' => ['integer', Rule::exists('drivers', 'id')]
         ];
     }
 }
