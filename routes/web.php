@@ -10,7 +10,6 @@ use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
 use App\Http\Controllers\Companies\BusCompanyController;
-use App\Http\Controllers\Companies\ConfigCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
 use App\Http\Controllers\Companies\DriverCompanyController;
 use App\Http\Controllers\Companies\TownCompanyController;

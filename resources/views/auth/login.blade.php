@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="nk-split-content nk-split-stretch" style="background-image: url('{{ asset('admins/images/events.jpg') }}')"></div>
+                <div class="nk-split-content nk-split-stretch" style="background-image: url('{{ asset('assets/admins/images/login.jpg') }}');background-repeat: no-repeat; background-attachment: fixed; background-position: center"></div>
             </div>
         </div>
     </div>

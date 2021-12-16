@@ -20,7 +20,7 @@ class ConfigRepository
 
     public function getJsonReservations(): Collection|array
     {
-        $bookings = Driver::query()
+        return Booking::query()
             ->where('company_id', '=', auth()->user()->company->id)
             ->select(
                 DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"),
@@ -30,7 +30,6 @@ class ConfigRepository
             ->groupBy('day_name','day')
             ->orderBy('day')
             ->get();
-        return $bookings;
     }
 
     public function updateUser(string $key, $attributes): Model|Builder
