@@ -87,7 +87,6 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <ul class="link-list-opt no-bdr">
-                                                                @if(!auth()->user()->role_id == 2)
                                                                     <li>
                                                                         <a href="{{ route('company.trajets.edit', $trajet->key) }}">
                                                                             <em class="icon ni ni-edit"></em>
@@ -104,7 +103,6 @@
                                                                             </button>
                                                                         </form>
                                                                     </li>
-                                                                @endif
                                                             </ul>
                                                         </div>
                                                     </div>

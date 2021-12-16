@@ -8,6 +8,7 @@ use App\Repository\Interfaces\BaseRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 
 class BusCompanyRepository extends BaseRepositoryInterface
 {
@@ -27,8 +28,13 @@ class BusCompanyRepository extends BaseRepositoryInterface
             ->first();
     }
 
-    public function create($attributes): Model|Builder
+    public function create($attributes): Model|Builder|RedirectResponse
     {
+        $driver = $this->getDriverForBus($attributes);
+        if ($driver){
+            toast("Ce chauffeur a ete deja affecter a un autre bus",'error');
+            return redirect()->back();
+        }
         $bus = Bus::query()
             ->create([
                 'code_bus' => $attributes->input('code_bus'),
@@ -61,5 +67,13 @@ class BusCompanyRepository extends BaseRepositoryInterface
         $bus->delete();
         toast("Un bus a ete supprimer", 'info');
         return $bus;
+    }
+
+    private function getDriverForBus($attributes): Model|Builder|null
+    {
+        return Bus::query()
+            ->where('company_id', '=', auth()->user()->company->id)
+            ->where('driver_id', '=', $attributes->input('driver_id'))
+            ->first();
     }
 }

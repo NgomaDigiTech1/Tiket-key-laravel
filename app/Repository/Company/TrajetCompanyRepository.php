@@ -8,6 +8,7 @@ use App\Repository\Interfaces\BaseRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 
 class TrajetCompanyRepository extends BaseRepositoryInterface
 {
@@ -27,8 +28,13 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
             ->firstOrFail();
     }
 
-    public function create($attributes): Model|Builder
+    public function create($attributes): Model|Builder|RedirectResponse
     {
+        $trajet = $this->getTrajets($attributes);
+        if ($trajet){
+            toast("Ce trajet existe deja", 'error');
+            return redirect()->route('company.trajets.create');
+        }
         $trajet = Trajet::query()
             ->create([
                 'starting_city' => $attributes->input('starting_city'),
@@ -63,5 +69,14 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
         $trajet->delete();
         toast("Une destination a ete supprimer", 'info');
         return $trajet;
+    }
+
+    private function getTrajets($attributes): Model|Builder|null
+    {
+        return Trajet::query()
+            ->where('company_id', '=', auth()->user()->company->id)
+            ->where('starting_city', '=', $attributes->input('starting_city'))
+            ->where('arrival_city', '=', $attributes->input('arrival_city'))
+            ->first();
     }
 }
