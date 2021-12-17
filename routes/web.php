@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\TravellerDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\Companies\BookingCompanyController;
 use App\Http\Controllers\Companies\BusCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
@@ -17,7 +18,6 @@ use App\Http\Controllers\Companies\DriverCompanyController;
 use App\Http\Controllers\Companies\TownCompanyController;
 use App\Http\Controllers\Companies\TrajetCompanyController;
 use App\Http\Controllers\Companies\TravellerCompanyController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Auth::routes(['verify' => true]);
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.admin']], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.admin', 'auth']], function(){
     Route::resource('dashboard', DashboardController::class);
     Route::resource('users', UserDashboardController::class);
     Route::resource('company', CompanyDashboardController::class);
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });
 
-Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin', 'verified']], function () {
+Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin', 'auth']], function () {
     Route::resource('dashboard', DashboardCompanyController::class);
     Route::resource('chauffeur', DriverCompanyController::class);
     Route::resource('bus', BusCompanyController::class);

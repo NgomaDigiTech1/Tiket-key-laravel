@@ -118,21 +118,6 @@
                 <div class="form-note-s2 pt-4"> Already have an account ?
                     <a href="{{ route('login') }}">connexion</a>
                 </div>
-                <div class="text-center pt-4 pb-3">
-                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                </div>
-                <ul class="nav justify-center gx-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login.facebook') }}">
-                            <em class="icon ni ni-facebook-f"></em>  Facebook
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login.google') }}">
-                            <em class="icon ni ni-google"></em>  Google
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="nk-split-content nk-split-stretch bg-abstract" style="background-image: url('{{ asset('admins/images/events.jpg') }}')"></div>
