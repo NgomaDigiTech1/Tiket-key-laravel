@@ -44,7 +44,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="text"
-                                                        class="form-control"
+                                                        class="form-control @error('name_company') error @enderror"
                                                         id="name_company"
                                                         name="name_company"
                                                         value="{{ auth()->user()->company->name_company }}"
@@ -59,7 +59,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="file"
-                                                        class="form-control"
+                                                        class="form-control @error('picture') error @enderror"
                                                         id="picture"
                                                         name="picture"
                                                         value="{{ auth()->user()->company->picture }}"
@@ -74,7 +74,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="text"
-                                                        class="form-control"
+                                                        class="form-control @error('address') error @enderror"
                                                         id="address"
                                                         name="address"
                                                         value="{{ auth()->user()->company->address }}"
@@ -89,7 +89,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="tel"
-                                                        class="form-control"
+                                                        class="form-control @error('phone_number') error @enderror"
                                                         id="phone_number"
                                                         name="phone_number"
                                                         value="{{ auth()->user()->company->phone_number }}"
@@ -104,7 +104,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="email"
-                                                        class="form-control"
+                                                        class="form-control @error('email') error @enderror"
                                                         id="email"
                                                         name="email"
                                                         value="{{ auth()->user()->company->email }}"
@@ -118,7 +118,7 @@
                                                 <label class="form-label" for="description">Description de votre entreprise</label>
                                                 <div class="form-control-wrap">
                                                 <textarea
-                                                    class="form-control form-control-sm"
+                                                    class="form-control form-control-sm @error('description') error @enderror"
                                                     id="description"
                                                     name="description"
                                                     placeholder="Une breve description de votre entreprise">{{ auth()->user()->company->description }}</textarea>
@@ -146,7 +146,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="text"
-                                                        class="form-control"
+                                                        class="form-control @error('name') error @enderror"
                                                         id="name"
                                                         name="name"
                                                         value="{{ auth()->user()->name }}"
@@ -161,7 +161,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="text"
-                                                        class="form-control"
+                                                        class="form-control @error('first_name') error @enderror"
                                                         id="first_name"
                                                         name="first_name"
                                                         value="{{ auth()->user()->first_name }}"
@@ -176,7 +176,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="email"
-                                                        class="form-control"
+                                                        class="form-control @error('email') error @enderror"
                                                         id="email"
                                                         name="email"
                                                         value="{{ auth()->user()->email }}"
@@ -191,7 +191,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="tel"
-                                                        class="form-control"
+                                                        class="form-control @error('phone_number') error @enderror"
                                                         id="phone_number"
                                                         name="phone_number"
                                                         value="{{ auth()->user()->phone_number }}"
@@ -206,7 +206,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="file"
-                                                        class="form-control"
+                                                        class="form-control @error('picture') error @enderror"
                                                         id="picture"
                                                         name="picture"
                                                         value="{{ auth()->user()->picture }}"
@@ -221,7 +221,7 @@
                                                 <div class="form-control-wrap">
                                                     <input
                                                         type="password"
-                                                        class="form-control"
+                                                        class="form-control @error('password') error @enderror"
                                                         id="password"
                                                         name="password"
                                                         placeholder="Mot de passe"

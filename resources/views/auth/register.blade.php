@@ -13,9 +13,14 @@
                 </a>
             </div>
             <div class="nk-block nk-block-middle nk-auth-body">
-                <div class="brand-logo pb-5">
+                <div class="brand-logo pb-5 pt-4">
                     <a href="{{ route('home.index') }}" class="logo-link">
-                        <img src="{{ asset('app/images/icon.png') }}" alt="logo" height="90%">
+                        <img
+                            src="{{ asset('assets/admins/images/logo.png') }}"
+                            alt="ticket key"
+                            height="70%"
+                            width="70%"
+                        >
                     </a>
                 </div>
                 <div class="nk-block-head">
