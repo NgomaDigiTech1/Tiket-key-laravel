@@ -23,7 +23,8 @@ class ConfigRepository
         return Booking::query()
             ->where('company_id', '=', auth()->user()->company->id)
             ->select(
-                DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"),
+                DB::raw("COUNT(*) as count"),
+                DB::raw("DAYNAME(created_at) as day_name"),
                 DB::raw("DAY(created_at) as day")
             )
             ->where('created_at', '>', Carbon::today()->subDay(6))

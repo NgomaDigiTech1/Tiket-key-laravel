@@ -68,21 +68,21 @@
                         label: "Reservations",
                         data: cData.data,
                         backgroundColor: [
-                            "#DEB887",
+                            "#5ce0aa",
                             "#A9A9A9",
                             "#DC143C",
                             "#F4A460",
                             "#2E8B57",
                             "#1D7A46",
-                            "#CDA776",
+                            "#5ce0aa",
                         ],
                         borderColor: [
-                            "#CDA776",
+                            "#5ce0aa",
                             "#989898",
                             "#CB252B",
                             "#E39371",
                             "#1D7A46",
-                            "#F4A460",
+                            "#5ce0aa",
                             "#CDA776",
                         ],
                         borderWidth: [1, 1, 1, 1, 1,1,1]
@@ -92,7 +92,26 @@
 
             var chart1 = new Chart(ctx, {
                 type: "bar",
-                data: data,
+                data: {
+                    labels: data.labels,
+                    datasets: data.datasets
+                },
+                options: {
+                    legend: {
+                        display: data.legend ? data.legend : false,
+                        labels: {
+                            boxWidth: 12,
+                            padding: 20,
+                            fontColor: '#6783b8'
+                        }
+                    },
+                    scales: {
+                        myScale: {
+                            type: 'logarithmic',
+                            position: 'right', // `axis` is determined by the position as `'y'`
+                        }
+                    }
+                }
             });
         });
     </script>
