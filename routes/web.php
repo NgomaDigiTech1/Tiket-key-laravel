@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\TravellerDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\App\CompanyController;
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\Companies\BookingCompanyController;
 use App\Http\Controllers\Companies\BusCompanyController;
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/company/{name}', [CompanyController::class, 'showCompany'])->name('company.detail');
 
 Auth::routes(['verify' => true]);
 
