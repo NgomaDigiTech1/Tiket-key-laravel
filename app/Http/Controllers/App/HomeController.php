@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-
     public function __construct(public HomeRepository $repository){}
 
     public function index(): Factory|View|Application

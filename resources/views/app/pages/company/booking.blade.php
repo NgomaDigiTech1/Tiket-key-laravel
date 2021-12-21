@@ -24,59 +24,111 @@
                 <div id="content" class="col-lg-8">
                     <div class="detail-content">
                         <div class="description detail-box car-book">
+                            <div class="detail-title"><h3>BOOKING INFORMATION</h3></div>
+                            <div class="description-content">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>company name:</label>
+                                        <input
+                                            type="text"
+                                            readonly
+                                            class="form-control"
+                                            value="{{ $trajet->company->name_company }}">
+                                    </div>
+                                    <div class="form-group col-lg-6 col-left-padding">
+                                        <label>Ville de depart:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            readonly
+                                            value="{{ $trajet->starting_city ?? "" }}"
+                                        >
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Ville d'arriver:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            readonly
+                                            value="{{  $trajet->arrival_city ?? ""  }}"
+                                        >
+                                    </div>
+                                    <div class="form-group col-lg-6 col-left-padding">
+                                        <label>Heure de depart:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            readonly
+                                            value="{{ $trajet->start_time ?? "" }}"
+                                        >
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Prix:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            readonly
+                                            value="{{  $trajet->getPrices() ?? ""  }}"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description detail-box car-book">
                             <div class="detail-title"><h3>YOUR PERSONAL INFORMATION</h3></div>
                             <div class="description-content">
-                                <form>
+                                <form method="POST" action="{{ route('booking.company') }}">
+                                    @csrf
                                     <div class="row">
-                                        <div class="form-group col-lg-12">
-                                            <label>Name:</label>
-                                            <input type="text" class="form-control" id="Name" placeholder="Enter full name">
-                                        </div>
                                         <div class="form-group col-lg-6">
-                                            <label>Email:</label>
-                                            <input type="email" class="form-control" id="email" placeholder="abc@xyz.com">
+                                            <label>Votre nom:</label>
+                                            <input
+                                                type="text"
+                                                class="form-control @error('first_name') is-invalid @enderror"
+                                                id="first_name"
+                                                name="first_name"
+                                                value="{{ old('first_name') }}"
+                                                placeholder="votre nom">
                                         </div>
                                         <div class="form-group col-lg-6 col-left-padding">
-                                            <label>Phone Number:</label>
-                                            <input type="text" class="form-control" id="phnumber" placeholder="XXXX-XXXXXX">
+                                            <label>Votre Prenom:</label>
+                                            <input
+                                                type="text"
+                                                class="form-control @error('name') is-invalid @enderror"
+                                                id="name"
+                                                name="name"
+                                                value="{{ old('name') }}"
+                                                placeholder="votre prenom">
                                         </div>
                                         <div class="form-group col-lg-6">
-                                            <label>Gender:</label>
-                                            <select>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                                <option value="other">Other</option>
-                                            </select>
+                                            <label>Votre email:</label>
+                                            <input
+                                                type="email"
+                                                class="form-control @error('email') is-invalid @enderror"
+                                                id="email"
+                                                name="email"
+                                                value="{{ old('email') }}"
+                                                placeholder="votre email">
                                         </div>
                                         <div class="form-group col-lg-6 col-left-padding">
-                                            <label>Nationality:</label>
-                                            <select>
-                                                <option value="american">American</option>
-                                                <option value="opel">Malaysian</option>
-                                                <option value="audi">German</option>
-                                            </select>
+                                            <label>Votre numero telephone:</label>
+                                            <input
+                                                type="tel"
+                                                class="form-control @error('phone_number') is-invalid @enderror"
+                                                id="phone_number"
+                                                name="phone_number"
+                                                value="{{ old('phone_number') }}"
+                                                placeholder="votre numero de telephone">
                                         </div>
-                                        <div class="form-group textarea col-lg-12">
-                                            <label>Message:</label>
-                                            <textarea placeholder="Enter a message"></textarea>
-                                        </div>
-                                        <div class="form-group col-lg-6">
-                                            <label>Coupon Code:</label>
-                                            <input type="text" class="form-control" id="Name" placeholder="Enter full name">
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="checkbox-outer">
-                                                <input type="checkbox" name="vehicle2" value="Car"> I want to receive <a href="#">Let’s car rent</a> promotional offers in the future terms and conditions.
-                                            </div>
-                                        </div>
+                                        <input type="hidden" name="trajet_key"  value="{{ $trajet->key }}">
+                                    </div>
+                                    <div class="comment-btn">
+                                        <button type="submit" class="btn-blue btn-red">
+                                            Complete Booking
+                                        </button>
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <a href="#"></a>
-                        <div class="comment-btn">
-                            <a href="#"></a>
-                            <a href="#" class="btn-blue btn-red">Complete Booking</a>
                         </div>
                     </div>
                 </div>
@@ -85,10 +137,17 @@
                     <aside class="detail-sidebar sidebar-wrapper">
                         <div class="sidebar-item sidebar-helpline">
                             <div class="sidebar-helpline-content">
-                                <h3>Any Questions?</h3>
-                                <p>Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sedpr do eiusmod tempor incididunt ut.</p>
-                                <p><i class="flaticon-phone-call"></i> (012)-345-6789</p>
-                                <p><i class="flaticon-mail"></i> <span class="__cf_email__" data-cfemail="384c574d4a564c4a594e5d54784c5d4b4c55595154165b5755">[email&nbsp;protected]</span></p>
+                                <h3>{{ $trajet->company->name_company }}</h3>
+                                <p>
+                                    {{ $trajet->company->description }}
+                                </p>
+                                <p><i class="flaticon-phone-call"></i> {{ $trajet->company->phone_number }}</p>
+                                <p>
+                                    <i class="flaticon-mail"></i>
+                                    <span class="__cf_email__" >
+                                        {{ $trajet->company->email }}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </aside>
