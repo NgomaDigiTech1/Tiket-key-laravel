@@ -1,4 +1,4 @@
-/* 
+/*
 /*------------------------------------------------------------------
 * Project:        Yatra
 * Author:         CN-InfoTech
@@ -9,7 +9,7 @@
 - // TABLE OF CONTENTS // -
 
 ========================================================================
- 
+
 
  1.* Default
  2.* Navbar
@@ -43,7 +43,7 @@
   outline: 0;
   font-size: 100%;
   background: transparent;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 ol, ul {
@@ -51,13 +51,13 @@ ol, ul {
 }
 
 :focus {
-  outline: 0; 
+  outline: 0;
 }
 
 .clear {
   clear: both;
   line-height: 0;
-  font-size: 0; 
+  font-size: 0;
 }
 
 .clearfix:after {
@@ -65,22 +65,22 @@ ol, ul {
   content: '.';
   display: block;
   visibility: hidden;
-  height: 0; 
+  height: 0;
 }
 .clearfix:after .test {
-  color: red; 
+  color: red;
 }
 
 .clearfix {
-  display: inline-block; 
+  display: inline-block;
 }
 
 * html .clearfix {
-  height: 1%; 
+  height: 1%;
 }
 
 .clearfix {
-  display: block; 
+  display: block;
 }
 
 header,
@@ -89,12 +89,12 @@ section,
 article,
 aside,
 footer {
-  display: block; 
+  display: block;
 }
 
 * {
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 body {
@@ -105,14 +105,14 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   color: #333;
-  font-weight: 300; 
+  font-weight: 300;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-weight: 600;
   margin-bottom: 15px;
   color: #444444;
-  margin-top: 0; 
+  margin-top: 0;
   line-height: 1.5;
   font-family: 'Poppins', sans-serif;
 }
@@ -120,27 +120,27 @@ h1{
   font-size: 36px;
 }
 h2 {
-  font-size: 28px; 
+  font-size: 28px;
 }
 
 h3 {
-  font-size: 21px; 
+  font-size: 21px;
 }
 
 h4 {
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 h5 {
-  font-size: 16px; 
+  font-size: 16px;
 }
 
 h6 {
-  font-size: 14px; 
+  font-size: 14px;
 }
 
 hr {
-  border: 0.5px solid #444444; 
+  border: 0.5px solid #444444;
 }
 
 p {
@@ -150,15 +150,15 @@ p {
 
 ul {
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 ul li {
   margin-bottom: 15px;
   color: #777;
-  position: relative; 
+  position: relative;
 }
 a {
-  color: #002147; 
+  color: #002147;
   transition: all ease-in-out 0.3s;
 }
 a:hover {
@@ -187,7 +187,7 @@ select,
   width: 100%;
   color: #444444;
   height: auto;
-  margin-bottom: 0px; 
+  margin-bottom: 0px;
   box-shadow: none;
 }
 select{
@@ -203,15 +203,15 @@ input[type=date]:focus,
 textarea:focus,
 select:focus {
   border-color: #66afe9;
-  transition: all 0.5s ease; 
+  transition: all 0.5s ease;
 }
 
 .checkbox, .radio {
     margin: 15px 0;
 }
 
-.radio input[type="radio"], 
-.radio-inline input[type="radio"], 
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
  .checkbox-inline input[type="checkbox"] {
     float: left;
@@ -228,11 +228,11 @@ select:focus {
 
 textarea {
   resize: vertical;
-  height: 200px; 
+  height: 200px;
 }
 
 img {
-  width: 100%; 
+  width: 100%;
 }
 section{
   padding: 80px 0 0px;
@@ -325,9 +325,6 @@ abtn-blue:hover{
   width: 300px;
   height: 300px;
   margin: 0 auto;
-  background: url(../images/loader.gif);
-  background-size: cover;
-  background-position: center;
   opacity: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease-in-out;
@@ -386,10 +383,6 @@ abtn-blue:hover{
 /*
 breadcrumb*/
 section.breadcrumb-outer{
-  background: url(../images/breadcrumb.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
   position: relative;
   padding: 50px 0 0px;
 }
@@ -660,7 +653,7 @@ ul.nav-mini li i{color: #fff; padding-right: 5px;}
 }
 .nav.navbar-nav li ul li a:hover{
   color: #D60D45;
-} 
+}
 
 .nav.navbar-nav li ul li ul {
     position: absolute;
@@ -803,7 +796,7 @@ ul.nav-mini li i{color: #fff; padding-right: 5px;}
     #sp-top1 .nav-mini-wrapper{display: inline-block; float: none!important; margin:10px 0;}
 
     #sp-top-bar .sp-contact-info{display: inline-block;}
-  
+
 }
 
 @media (min-width: 768px) {
@@ -849,7 +842,7 @@ ul.nav-mini li i{color: #fff; padding-right: 5px;}
 
 .navbar.navbar-sticky .logo {padding: 5px 0 5px;}
 
-.navbar.navbar-sticky .logo img{width: 85%;}
+.navbar.navbar-sticky .logo img{width: 15%;}
 
 .navbar-sticky .nav.navbar-nav > li > a{color: #333;}
 
@@ -861,7 +854,7 @@ ul.nav-mini li i{color: #fff; padding-right: 5px;}
 @media only screen and (max-width: 991px) {
 
     #sp-top2.col-sm-9{padding-right: 0;}
-    
+
     .sp-contact-info li{font-size: 12px; padding: 6px 4px;}
 
     .navbar-fixed-top {
@@ -901,7 +894,7 @@ header{
 }
 
 .logo img{
-  width: 80%;
+  width: 15%;
 }
 
 .logo h1{
@@ -979,7 +972,6 @@ header{
 
 #mt_banner:after {
     content: '';
-    background: url(../images/mount.png) repeat-x;
     background-size: 100%;
     position: absolute;
     bottom: 0;
@@ -1019,7 +1011,7 @@ header{
   left: 0;
   top: 0;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
 }
 
 .slide-inner:before {
@@ -1045,13 +1037,13 @@ header{
   font-size: 45px;
   position: absolute;
   right: 25px;
-  color: #fff; 
+  color: #fff;
 }
 
-.swiper-button-prev.swiper-button-white:before, 
+.swiper-button-prev.swiper-button-white:before,
 .swiper-container-rtl .swiper-button-next.swiper-button-white:before {
   content: '\f104';
-  left: 25px; 
+  left: 25px;
 }
 
 .search-box{
@@ -1138,20 +1130,20 @@ header{
   text-align: center;
   left: 0;
 }
-.table_item input[type=text], 
-.table_item input[type=email], 
-.table_item input[type=number], 
-.table_item input[type=search], 
+.table_item input[type=text],
+.table_item input[type=email],
+.table_item input[type=number],
+.table_item input[type=search],
 .table_item input[type=password],
-.table_item input[type=tel], 
+.table_item input[type=tel],
 .table_item input[type=date],
-.table_item textarea, 
+.table_item textarea,
 .table_item select,
 .table_item .form-control{
   padding: 11px 40px;
   height: 54px;
    }
-input[type=date].form-control, 
+input[type=date].form-control,
 input[type=time].form-control,
  input[type=datetime-local].form-control,
   input[type=month].form-control{
@@ -1377,7 +1369,7 @@ td.day{
 .tour-price .tour-head{
     font-size: 15px;
     font-weight: 400;
-}    
+}
 
 .tour-price .tour-tail{
     font-size: 22px;
@@ -1433,7 +1425,7 @@ section.top-country {
 
 .top-country .destination-content{padding: 20px;}
 
-.top-country .destination-content p{margin-bottom: 0;} 
+.top-country .destination-content p{margin-bottom: 0;}
 
 ul.list li {
     display: inline-block;
@@ -1492,7 +1484,7 @@ section.tour-cta {
 
 .single-choose-us:last-child {
     margin: 0;
-    border: none; 
+    border: none;
     padding-bottom: 0;
 }
 
@@ -1637,7 +1629,7 @@ li.social-icon a i{
   color: #fff;
 }
 .payment-content li img{
-  width: 30px;  
+  width: 30px;
 }
 
 #back-to-top {
@@ -1676,13 +1668,13 @@ li.social-icon a i{
 
 /****** Style Star Rating Widget *****/
 
-.rating { 
+.rating {
   border: none;
   float: left;
 }
 
-.rating > input { display: none; } 
-.rating > label:before { 
+.rating > input { display: none; }
+.rating > label:before {
   margin: 0px 5px;
   font-size: 1.25em;
   font-family: FontAwesome;
@@ -1690,14 +1682,14 @@ li.social-icon a i{
   content: "\f005";
 }
 
-.rating > .half:before { 
+.rating > .half:before {
   content: "\f089";
   position: absolute;
 }
 
-.rating > label { 
-  color: #ddd; 
- float: right; 
+.rating > label {
+  color: #ddd;
+ float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
@@ -1709,17 +1701,17 @@ li.social-icon a i{
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
 /*
 cars innerpage*/
 
 .cars-inner header{
-     background: transparent; 
-     border: none; 
-     position: inherit; 
-     left: inherit; 
-     top: inherit; 
+     background: transparent;
+     border: none;
+     position: inherit;
+     left: inherit;
+     top: inherit;
 }
 
 .cars-inner .upper-head {
@@ -1733,10 +1725,10 @@ cars innerpage*/
 
 .cars-inner .nav.navbar-nav > li > a{color: #333;}
 
-.cars-inner .nav.navbar-nav > li > a:hover, 
-.cars-inner .nav.navbar-nav > li.active > a, 
-.cars-inner .navbar-default .navbar-nav>.active>a, 
-.cars-inner .navbar-default .navbar-nav>.active>a:focus, 
+.cars-inner .nav.navbar-nav > li > a:hover,
+.cars-inner .nav.navbar-nav > li.active > a,
+.cars-inner .navbar-default .navbar-nav>.active>a,
+.cars-inner .navbar-default .navbar-nav>.active>a:focus,
 .cars-inner .navbar-default .navbar-nav>.active>a:hover{
   color: #D60D45;
 }
@@ -1768,7 +1760,7 @@ section.cars-destinations{padding-bottom: 80px;}
 
 .cars-head .change-list.f-active i, .cars-head .change-grid.f-active i, .cars-head a:hover i{
   color: #fff;
-  background:#D60D45;  
+  background:#D60D45;
   transition: all ease-in-out 0.3;
 }
 
@@ -1883,7 +1875,7 @@ section.cars-destinations{padding-bottom: 80px;}
 
 .cars-inner .tour-price .tour-head{
     font-size: 13px;
-}    
+}
 
 .cars-inner .tour-price .tour-tail{
   font-weight: 600;
@@ -1973,7 +1965,7 @@ sidebar*/
 }
 .sidebar-item .input-group{overflow: hidden; width: 100%;}
 .sidebar-item .input-group-addon{
-  border-radius: 0; 
+  border-radius: 0;
   border: none;
   padding: 14px 12px;
   position: absolute;
@@ -1991,12 +1983,6 @@ sidebar*/
   width: 100%;
   text-align: center;
   color: #fff;
-}
-.sidebar-helpline{
-  background: url(../images/adbg.jpg) no-repeat;
-  background-size: cover;
-  position: relative;
-  padding: 30px;
 }
 .sidebar-helpline:after{
   position: absolute;
@@ -2144,7 +2130,7 @@ ul.checklist li:before {
     content: '\f00c';
     font-family: 'fontawesome';
     padding-right: 3px;
-    color:#72bf66; 
+    color:#72bf66;
 }
 
 @media(max-width: 640px){
@@ -2163,7 +2149,7 @@ ul.checklist li:before {
     margin-bottom: 5px;
   }
   .logo img{
-    width: 100%;
+    width: 15%;
   }
 }
 
@@ -2171,9 +2157,9 @@ ul.checklist li:before {
 @media(max-width: 991px){
 
   .header_menu .slicknav_menu{background: transparent;}
-  
-  
-  
+
+
+
   .search-content{
     padding: 30px 30px 0;
   }
@@ -2294,7 +2280,7 @@ ul.checklist li:before {
   .click-menu.pull-right{margin-top: 10px;}
 
   #mt_banner:after{height: 8%;}
- } 
+ }
 
 @media (max-width: 500px){
 
@@ -2316,7 +2302,7 @@ ul.checklist li:before {
     float: none !important;
   }
   .search-content .col-xs-6{
-    width: 100%; 
+    width: 100%;
   }
   .search-ad{
     margin-bottom: 30px;
@@ -2363,7 +2349,7 @@ ul.checklist li:before {
   }
 
   .detail-info-content{text-align: center;}
-  
+
   .detail-content .comment-image{
     margin-bottom: 10px;
     padding: 0;

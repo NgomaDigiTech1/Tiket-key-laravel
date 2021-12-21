@@ -24,42 +24,8 @@
                     <h2>Where would you like to go?</h2>
                 </div>
                 <div class="search-content-slider">
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12">
-                                <div class="table_item">
-                                    <div class="form-group">
-                                        <select name="depart" class="form-control">
-                                            <option value="0">Depart</option>
-                                            @foreach($towns as $town)
-                                                <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
-                                            @endforeach
-                                        </select>
-                                        <i class="flaticon-maps-and-flags"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="table_item">
-                                    <div class="form-group">
-                                        <select name="arriver" class="form-control">
-                                            <option value="0">Arriver</option>
-                                            @foreach($towns as $town)
-                                                <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
-                                            @endforeach
-                                        </select>
-                                        <i class="flaticon-maps-and-flags"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="table_item">
-                                    <div class="search">
-                                        <button type="submit" class="btn-blue btn-red btn-style-1">SEARCH</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <form method="GET" action="">
+                        @include('app.components._form')
                     </form>
                 </div>
             </div>
@@ -85,26 +51,7 @@
             </div>
             <div class="row slider-button">
                 @foreach($companies as $company)
-                    <div class="col-lg-6">
-                        <div class="package-item box-item">
-                            <div class="package-image">
-                                <img src="{{ asset('storage/'.$company->picture) }}" alt="Image">
-                            </div>
-                            <div class="package-content">
-                                <h4>{{ $company->name_company ?? "" }}</h4>
-                                <div class="package-price">
-                                    <p><span>Tel</span> / {{ $company->phone_number ?? "" }} </p>
-                                </div>
-                                <p>{{ $company->description ?? "Une breve description de cette company" }}</p>
-                                <div class="package-info">
-                                    <a
-                                        href="{{ route('company.detail',$company->name_company) }}"
-                                        class="btn-blue btn-red btn-style-1"
-                                    >View more details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('app.components.card')
                 @endforeach
             </div>
         </div>

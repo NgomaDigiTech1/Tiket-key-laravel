@@ -27,15 +27,11 @@
                                     'name' => "Home"
                                 ])
                                 @include('app.partials.NavLink', [
-                                    'route' => route('home.index'),
-                                    'name' => "Voyage"
-                                ])
-                                @include('app.partials.NavLink', [
-                                    'route' => route('home.index'),
+                                    'route' => route('company.index'),
                                     'name' => "Nos companie"
                                 ])
                                 @include('app.partials.NavLink', [
-                                    'route' => route('home.index'),
+                                    'route' => route('app.contact'),
                                     'name' => "Nous contactez"
                                 ])
                                 @include('app.partials.NavLink', [

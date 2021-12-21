@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-upper">
+    <div class="footer-upper mt-5">
         <div class="container">
             <div class="footer-links">
                 <div class="row">

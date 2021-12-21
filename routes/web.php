@@ -23,7 +23,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('contact', [HomeController::class, 'contact'])->name('app.contact');
+Route::get('company', [CompanyController::class, 'index'])->name('company.index');
 Route::get('/company/{name}', [CompanyController::class, 'showCompany'])->name('company.detail');
+Route::get('/booking/{key}', [CompanyController::class, 'booking'])->name('company.booking');
+
+Route::post('contact', [HomeController::class, 'sendContact'])->name('contact.send');
 
 Auth::routes(['verify' => true]);
 
