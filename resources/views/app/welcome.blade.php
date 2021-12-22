@@ -24,7 +24,7 @@
                     <h2>Where would you like to go?</h2>
                 </div>
                 <div class="search-content-slider">
-                    <form method="GET" action="">
+                    <form id="submit">
                         @include('app.components._form')
                     </form>
                 </div>
@@ -41,6 +41,8 @@
     </section>
 
     <section class="popular-packages">
+        <div id="itemsListTable"></div>
+        <div id="fMsg"></div>
         <div class="container">
             <div class="section-title text-center">
                 <h2>Our Companies</h2>
@@ -56,4 +58,34 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#submit').submit(function (e){
+                e.preventDefault();
+                let data = {
+                    depart: $('#depart').val(),
+                    arriver: $('#arriver').val()
+                }
+                if (data) {
+                    $.ajax({
+                        url: `searchBooking/${data}`,
+                        type: "get",
+                        data: {data},
+                        success: function (returnedData) {
+                            console.log(returnedData)
+                            $("#fMsg").css('color', 'green').text(returnedData.trajets.message);
+                            $("#itemsListTable").html(returnedData.trajets);
+                        }
+                    });
+                } else {
+                    //reload the table if all text in search box has been cleared
+                    console.log('null')
+                    displayFlashMsg("Chargement de la page...", spinnerClass, "", "");
+                }
+            })
+        });
+    </script>
 @endsection

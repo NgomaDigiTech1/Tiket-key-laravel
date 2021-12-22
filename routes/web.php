@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\TravellerDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\App\BookingController;
 use App\Http\Controllers\App\CompanyController;
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\Companies\BookingCompanyController;
@@ -30,6 +31,8 @@ Route::get('/booking/{key}', [CompanyController::class, 'booking'])->name('compa
 Route::post('reservation/', [CompanyController::class, 'book'])->name('booking.company');
 Route::get('/confirmation', [CompanyController::class, 'confirmation'])->name('confirmation.index');
 Route::post('contact', [HomeController::class, 'sendContact'])->name('contact.send');
+
+Route::get('searchBooking/{search}', [BookingController::class, 'search'])->name('booking.search');
 
 Auth::routes(['verify' => true]);
 

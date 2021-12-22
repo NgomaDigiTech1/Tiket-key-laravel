@@ -2,7 +2,7 @@
     <div class="col-lg-4 col-md-12">
         <div class="table_item">
             <div class="form-group">
-                <select name="depart" class="form-control">
+                <select name="depart" id="depart" class="form-control">
                     <option value="0">Depart</option>
                     @foreach($towns as $town)
                         <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
@@ -15,7 +15,7 @@
     <div class="col-lg-4 col-md-6">
         <div class="table_item">
             <div class="form-group">
-                <select name="arriver" class="form-control">
+                <select name="arriver" id="arriver" class="form-control">
                     <option value="0">Arriver</option>
                     @foreach($towns as $town)
                         <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
