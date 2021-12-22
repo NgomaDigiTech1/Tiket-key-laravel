@@ -19,10 +19,6 @@ class BookingConfirmationNotification extends Notification
         return ['mail','database', 'broadcast'];
     }
 
-    /**
-     * @param  mixed  $notifiable
-     * @return MailMessage
-     */
     public function toMail(mixed $notifiable): MailMessage
     {
         return (new MailMessage)
@@ -31,10 +27,6 @@ class BookingConfirmationNotification extends Notification
                     ->line('Thank you for using our application!');
     }
 
-    /**
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function toArray(mixed $notifiable): array
     {
         return [

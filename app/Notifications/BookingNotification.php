@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class BookingCancelNotification extends Notification
+class BookingNotification extends Notification
 {
     use Queueable;
 
@@ -16,14 +16,10 @@ class BookingCancelNotification extends Notification
 
     public function via($notifiable): array
     {
-        return ['mail', 'database', 'broadcast'];
+        return ['mail', 'database'];
     }
 
-    /**
-     * @param  mixed  $notifiable
-     * @return MailMessage
-     */
-    public function toMail(mixed $notifiable): MailMessage
+    public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
@@ -31,11 +27,7 @@ class BookingCancelNotification extends Notification
                     ->line('Thank you for using our application!');
     }
 
-    /**
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray(mixed $notifiable): array
+    public function toArray($notifiable): array
     {
         return [
             'booking' => $this->booking
