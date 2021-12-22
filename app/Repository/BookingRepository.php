@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookingRepository extends Interfaces\BaseRepositoryInterface
 {
-
     public function getContents(): Collection|array
     {
         return Booking::query()
@@ -58,6 +57,18 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
             ->where('id', '=', $booking->traveller_id)
             ->first();
         $booking->status = Booking::APPROVE_BOOKING;
+        $booking->save();
+        dispatch(new ConfirmedBookJob($booking, $traveller))->delay(now()->addSecond(5));
+        return $booking;
+    }
+
+    public function invalidateRoom(string $key): Model|Builder|null
+    {
+        $booking = $this->getBooking($key);
+        $traveller = Traveller::query()
+            ->where('id', '=', $booking->traveller_id)
+            ->first();
+        $booking->status = Booking::PENDING_BOOKING;
         $booking->save();
         dispatch(new ConfirmedBookJob($booking, $traveller))->delay(now()->addSecond(5));
         return $booking;
