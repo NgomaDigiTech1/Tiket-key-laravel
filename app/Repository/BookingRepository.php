@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Jobs\ConfirmedBookJob;
 use App\Models\Booking;
+use App\Models\Traveller;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -21,9 +23,7 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
 
     public function show(string $key): Model|Builder
     {
-        $booking = Booking::query()
-            ->where('key', '=', $key)
-            ->first();
+        $booking = $this->getBooking($key);
         $booking->load(['traveller', 'trajet', 'company']);
         return $booking;
     }
@@ -35,9 +35,7 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
 
     public function update(string $key, $attributes): Model|Builder
     {
-        $booking = Booking::query()
-            ->where('key', '=', $key)
-            ->first();
+        $booking = $this->getBooking($key);
         $booking->update([
             'status' => Booking::APPROVE_BOOKING
         ]);
@@ -47,11 +45,28 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
 
     public function delete(string $key): Model|Builder
     {
-        $booking = Booking::query()
-            ->where('key', '=', $key)
-            ->first();
+        $booking = $this->getBooking($key);
         $booking->delete();
         toast("La reservation a ete annuler", 'info');
         return $booking;
+    }
+
+    public function confirmedRoom(string $key): Model|Builder
+    {
+        $booking = $this->getBooking($key);
+        $traveller = Traveller::query()
+            ->where('id', '=', $booking->traveller_id)
+            ->first();
+        $booking->status = Booking::APPROVE_BOOKING;
+        $booking->save();
+        dispatch(new ConfirmedBookJob($booking, $traveller))->delay(now()->addSecond(5));
+        return $booking;
+    }
+
+    private function getBooking(string $key): null|Builder|Model
+    {
+        return Booking::query()
+            ->where('key', '=', $key)
+            ->first();
     }
 }

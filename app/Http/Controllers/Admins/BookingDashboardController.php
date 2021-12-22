@@ -41,4 +41,16 @@ class BookingDashboardController extends Controller
         $this->repository->delete($key);
         return redirect()->route('admin.bookings.index');
     }
+
+    public function active(string $key): RedirectResponse
+    {
+        $this->repository->confirmedRoom($key);
+        return back();
+    }
+
+    public function inactive(string $key): RedirectResponse
+    {
+        $this->repository->invalidateRoom($key);
+        return back();
+    }
 }

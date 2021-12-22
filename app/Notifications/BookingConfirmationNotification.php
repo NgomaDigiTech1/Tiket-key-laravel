@@ -5,32 +5,22 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Queue\SerializesModels;
 
-class BookingConfirmationNotification extends Notification
+class BookingConfirmationNotification extends Mailable
 {
-    use Queueable;
+    use Queueable, SerializesModels;
 
-    public function __construct(public $booking){}
+    public function __construct(public $booking, public  $traveller){}
 
-    public function via($notifiable): array
+    public function build(): BookingConfirmationNotification
     {
-        return ['mail','database', 'broadcast'];
-    }
-
-    public function toMail(mixed $notifiable): MailMessage
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
-
-    public function toArray(mixed $notifiable): array
-    {
-        return [
-            'booking' => $this->booking
-        ];
+        return $this
+            ->from('no-replay@example.com', 'Confirmation du salle')
+            ->view('emails.reservation')
+            ->with('room',  $this->booking);
     }
 }

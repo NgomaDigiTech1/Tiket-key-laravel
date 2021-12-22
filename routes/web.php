@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::resource('bus', BusDashboardController::class);
     Route::resource('trajets', TrajetDashboardController::class);
     Route::resource('booking', BookingDashboardController::class);
+    Route::put('confirmedBooking/{key}', [BookingDashboardController::class, 'active'])->name('booking.confirmed');
+    Route::put('unconfirmedBooking/{key}', [BookingDashboardController::class, 'inactive'])->name('booking.inactive');
     Route::resource('travellers', TravellerDashboardController::class);
     Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });

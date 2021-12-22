@@ -46,6 +46,12 @@
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Nom du client</span>
                                     </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Status</span>
+                                    </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">companie</span>
+                                    </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
                                         <span class="sub-text">Actions</span>
                                     </th>
@@ -54,23 +60,27 @@
                                 <tbody>
                                 @foreach($bookings as $booking)
                                     <tr class="nk-tb-item">
-                                        <td class="nk-tb-col tb-col-sm">
-                                             <span class="tb-product text-center">
-                                                 <img src="{{
-                                                    $driver->picture == 'avatar3.png' ?
-                                                    asset('admins/images/avatar3.png')  :
-                                                    asset('storage/'.$driver->picture)
-                                                 }}" alt="{{ $driver->name }}" class="thumb">
-                                             </span>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $booking->trajet->starting_city ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $driver->name ?? "" }}</span>
+                                            <span>{{ $booking->trajet->arrival_city ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $driver->phone_number ?? "" }}</span>
+                                            <span>{{ $booking->trajet->getPrices() ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ strtoupper($driver->company->name_company) ?? "" }}</span>
+                                            <span>{{ strtoupper($booking->traveller->name) ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            @if($booking->status)
+                                                <span class="badge badge-dot badge-dot-xs badge-success">Active</span>
+                                            @else
+                                                <span class="badge badge-dot badge-dot-xs badge-warning">Pending</span>
+                                            @endif
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ strtoupper($booking->company->name_company) ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">
@@ -83,19 +93,13 @@
                                                             <ul class="link-list-opt no-bdr">
                                                                 @if(auth()->user()->role_id == 2)
                                                                     <li>
-                                                                        <a href="{{ route('admin.drivers.show', $driver->key) }}">
-                                                                            <em class="icon ni ni-eye"></em>
+                                                                        <a href="{{ route('admin.booking.show', $booking->key) }}">
+                                                                            <em class="icon ni ni-edit"></em>
                                                                             <span>Voir</span>
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="{{ route('admin.drivers.edit', $driver->key) }}">
-                                                                            <em class="icon ni ni-edit"></em>
-                                                                            <span>Editer</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <form action="{{ route('admin.drivers.destroy', $driver->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
+                                                                        <form action="{{ route('admin.booking.destroy', $booking->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
                                                                             @method('DELETE')
                                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                                             <button type="submit" class="btn btn-dim">

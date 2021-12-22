@@ -10,27 +10,51 @@
             <div class="nk-block-head nk-block-head-sm">
                 <div class="nk-block-between g-3">
                     <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Reservation / {{ $driver->name ?? "" }}</h3>
+                        <h3 class="nk-block-title page-title">{{ $booking->trajet->starting_city  ?? "" }} / {{ $booking->trajet->arrival_city  ?? "" }}</h3>
                     </div>
                     <div class="nk-block-head-content">
-                        <a href="{{ route('admin.booking.index') }}" class="btn btn-outline-light btn-sm bg-white d-none d-sm-inline-flex">
-                            <em class="icon ni ni-arrow-left"></em>
-                            <span>Back</span>
-                        </a>
+                        <div class="toggle-wrap nk-block-tools-toggle">
+                            <div class="toggle-expand-content" data-content="pageMenu">
+                                <ul class="nk-block-tools g-3">
+                                    <li class="preview-item">
+                                        @if ($booking->confirmed == false)
+                                            @include('admins.components.update', [
+                                                'route' => 'admin.booking.confirmed',
+                                                'callback' => $booking->key,
+                                                'button' => 'btn-outline-success btn-sm',
+                                                'icon' => 'ni-check-circle',
+                                                'title' => 'Activer'
+                                            ])
+                                        @else
+                                            @include('admins.components.update', [
+                                                'route' => 'admin.booking.inactive',
+                                                'callback' => $booking->key,
+                                                'button' => 'btn-outline-danger btn-sm',
+                                                'icon' => 'ni-check-circle',
+                                                'title' => 'Désactiver'
+                                            ])
+                                        @endif
+                                    </li>
+                                    <li class="preview-item">
+                                        <a href="{{ route('admin.booking.index') }}" class="btn btn-outline-secondary btn-sm d-none d-sm-inline-flex">
+                                            <em class="icon ni ni-arrow-left"></em>
+                                            <span>Back</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="nk-block">
-                <div class="nk-block nk-block-lg">
-                    <div class="justify-content text-center p-2">
-                        <img
-                            src="{{ asset('storage/'.$driver->picture) }}"
-                            alt="{{ $driver->name_company }}"
-                            class="img-fluid img-thumbnail rounded"
-                            height="20%"
-                            width="20%"
-                        >
+                @if($booking->status == false)
+                    <div class="alert alert-danger alert-icon " role="alert">
+                        <em class="icon ni ni-alert-circle"></em>
+                        Cette reservation ne pas encore confirmer
                     </div>
+                @endif
+                <div class="nk-block nk-block-lg">
                     <div class="card">
                         <div class="card-inner">
                             <div class="tab-content">
@@ -39,54 +63,65 @@
                                         <div class="profile-ud-list">
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Non chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->first_name ?? "" }}</span>
+                                                    <span class="profile-ud-label">Prenom client</span>
+                                                    <span class="profile-ud-value">{{ $booking->traveller->first_name ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Prenom chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->name ?? "" }}</span>
+                                                    <span class="profile-ud-label">Nom Client</span>
+                                                    <span class="profile-ud-value">{{ $booking->traveller->name ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Age chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->age ?? "" }}</span>
+                                                    <span class="profile-ud-label">Telephone Client</span>
+                                                    <span class="profile-ud-value">{{ $booking->traveller->phone_number ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Telephone</span>
-                                                    <span class="profile-ud-value">{{ $driver->phone_number ?? "" }}</span>
+                                                    <span class="profile-ud-label">Email Client</span>
+                                                    <span class="profile-ud-value">{{ $booking->traveller->email ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
-                                                    <span class="profile-ud-label">Travail chez</span>
-                                                    <span class="profile-ud-value">{{ $driver->company->name_company }}</span>
+                                                    <span class="profile-ud-label">Destination</span>
+                                                    <span class="profile-ud-value">{{ $booking->trajet->arrival_city ?? "" }}</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group mt-3 text-center">
-                                            @if($driver->deleted_at)
-                                                <form action="{{ route('admin.driver.restore', $driver->key) }}" method="POST" class="d-inline">
-                                                    @method('PUT')
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-sm btn-outline-warning">
-                                                        <em class="icon ni ni-undo"></em>
-                                                        <span>Restaurer</span>
-                                                    </button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('admin.driver.force', $driver->key) }}" method="POST" class="d-inline">
-                                                    @method('DELETE')
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <em class="icon ni ni-cross-circle"></em> Supprimer
-                                                    </button>
-                                                </form>
-                                            @endif
+                                            <div class="profile-ud-item">
+                                                <div class="profile-ud wider">
+                                                    <span class="profile-ud-label">Provenance</span>
+                                                    <span class="profile-ud-value">{{ $booking->trajet->starting_city ?? "" }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-ud-item">
+                                                <div class="profile-ud wider">
+                                                    <span class="profile-ud-label">Heure d'embarquement</span>
+                                                    <span class="profile-ud-value">{{ $booking->trajet->start_time ?? "" }}</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="profile-ud-item">
+                                                <div class="profile-ud wider">
+                                                    <span class="profile-ud-label">Nom company</span>
+                                                    <span class="profile-ud-value">{{ $booking->company->name_company ?? "" }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-ud-item">
+                                                <div class="profile-ud wider">
+                                                    <span class="profile-ud-label">Telephone company</span>
+                                                    <span class="profile-ud-value">{{ $booking->company->phone_number ?? "" }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-ud-item">
+                                                <div class="profile-ud wider">
+                                                    <span class="profile-ud-label">Email company</span>
+                                                    <span class="profile-ud-value">{{ $booking->company->email ?? "" }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
