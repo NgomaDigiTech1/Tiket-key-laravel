@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Jobs;
 
+use App\Mail\BookingMail;
 use App\Notifications\BookingNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -19,6 +20,6 @@ class BookingJob implements ShouldQueue
 
     public function handle()
     {
-        Notification::send($this->traveller->email, new BookingNotification($this->booking));
+        Notification::send($this->traveller->email, new BookingMail($this->booking));
     }
 }

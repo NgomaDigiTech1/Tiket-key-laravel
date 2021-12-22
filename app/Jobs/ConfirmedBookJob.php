@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Jobs;
 
+use App\Mail\BookingMail;
 use App\Notifications\BookingConfirmationNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,6 +19,6 @@ class ConfirmedBookJob implements ShouldQueue
 
     public function handle()
     {
-        Mail::to($this->traveller['email'])->send(new BookingConfirmationNotification($this->booking, $this->traveller));
+        Mail::to($this->traveller->email)->send(new BookingMail($this->booking, $this->traveller));
     }
 }
