@@ -15,10 +15,16 @@ class BookingController extends Controller
             ->where('starting_city', '=', $request['data']['depart'])
             ->where('arrival_city', '=', $request['data']['arriver'])
             ->get();
-        $trajet->load('company');
-        return response()->json([
-            'trajets' => $trajet,
-            'message' => "Donner trouver"
-        ], 200);
+        if (count($trajet)){
+            $trajet->load('company');
+            return response()->json([
+                'trajets' => $trajet,
+                'message' => "Donner trouver"
+            ], 200);
+        }else {
+            return response()->json([
+                'message' => "Aucune information existance pour cette recherche"
+            ]);
+        }
     }
 }

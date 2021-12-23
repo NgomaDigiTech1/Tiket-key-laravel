@@ -41,8 +41,6 @@
     </section>
 
     <section class="popular-packages">
-        <div id="itemsListTable"></div>
-        <div id="fMsg"></div>
         <div class="container">
             <div class="section-title text-center">
                 <h2>Our Companies</h2>
@@ -50,6 +48,10 @@
                     <i class="flaticon-diamond"></i>
                 </div>
                 <p>Select the company of your choice and travel safely..</p>
+            </div>
+            <div id="errors"></div>
+            <div class="row slide-button">
+                <table class="table" id="dynamic-row"></table>
             </div>
             <div class="row slider-button">
                 @foreach($companies as $company)
@@ -74,16 +76,31 @@
                         url: `searchBooking/${data}`,
                         type: "get",
                         data: {data},
-                        success: function (returnedData) {
-                            console.log(returnedData)
-                            $("#fMsg").css('color', 'green').text(returnedData.trajets.message);
-                            $("#itemsListTable").html(returnedData.trajets);
+                        dataType:"json",
+                        delay: 220,
+                        success: function (response) {
+                            let tableRow = '';
+                            $('#dynamic-row').html('');
+                            $.each(response.trajets, function (index, values) {
+                                tableRow = `
+                                    <tbody >
+                                        <tr>
+                                            <th scope="row">`+values.starting_city+` - `+ values.arrival_city+`</th>
+                                                 <td>`+values.start_time+`</td>
+                                                 <td>`+values.company.name_company+`</td>
+                                                 <td>`+values.prices+`FC</td>
+                                                 <td>
+                                                     <a href="/booking/${values.key}" class="btn btn-outline-primary">Book</a>
+                                                 </td>
+                                            </tr>
+                                    </tbody>`
+                                $('#dynamic-row').append(tableRow);
+                            })
+                        },
+                        error: function (err) {
+                            console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
                         }
                     });
-                } else {
-                    //reload the table if all text in search box has been cleared
-                    console.log('null')
-                    displayFlashMsg("Chargement de la page...", spinnerClass, "", "");
                 }
             })
         });

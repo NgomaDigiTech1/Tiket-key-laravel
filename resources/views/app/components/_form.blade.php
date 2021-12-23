@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-12">
         <div class="table_item">
             <div class="form-group">
                 <select name="arriver" id="arriver" class="form-control">
