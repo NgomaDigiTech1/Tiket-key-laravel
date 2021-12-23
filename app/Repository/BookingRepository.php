@@ -9,6 +9,7 @@ use App\Models\Traveller;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Milon\Barcode\DNS1D;
 
 class BookingRepository extends Interfaces\BaseRepositoryInterface
 {
@@ -50,14 +51,15 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
         return $booking;
     }
 
-    public function confirmedRoom(string $key): Model|Builder
+    public function confirmedBooking(string $key): Model|Builder
     {
         $booking = $this->getBooking($key);
         $traveller = Traveller::query()
             ->where('id', '=', $booking->traveller_id)
             ->first();
-        $booking->status = Booking::APPROVE_BOOKING;
-        $booking->save();
+        $booking->update([
+            'status' => Booking::APPROVE_BOOKING
+        ]);
         dispatch(new ConfirmedBookJob($booking, $traveller))->delay(now()->addSecond(5));
         return $booking;
     }
@@ -68,9 +70,9 @@ class BookingRepository extends Interfaces\BaseRepositoryInterface
         $traveller = Traveller::query()
             ->where('id', '=', $booking->traveller_id)
             ->first();
-        $booking->status = Booking::PENDING_BOOKING;
-        $booking->save();
-        dispatch(new ConfirmedBookJob($booking, $traveller))->delay(now()->addSecond(5));
+        $booking->update([
+            'status' => Booking::PENDING_BOOKING
+        ]);
         return $booking;
     }
 

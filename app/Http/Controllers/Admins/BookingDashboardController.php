@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admins;
 
@@ -44,7 +45,7 @@ class BookingDashboardController extends Controller
 
     public function active(string $key): RedirectResponse
     {
-        $this->repository->confirmedRoom($key);
+        $this->repository->confirmedBooking($key);
         return back();
     }
 

@@ -23,16 +23,6 @@ use App\Http\Controllers\Companies\TravellerCompanyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('contact', [HomeController::class, 'contact'])->name('app.contact');
-Route::get('company', [CompanyController::class, 'index'])->name('company.index');
-Route::get('/company/{name}', [CompanyController::class, 'showCompany'])->name('company.detail');
-Route::get('/booking/{key}', [CompanyController::class, 'booking'])->name('company.booking');
-Route::post('reservation/', [CompanyController::class, 'book'])->name('booking.company');
-Route::get('/confirmation', [CompanyController::class, 'confirmation'])->name('confirmation.index');
-Route::post('contact', [HomeController::class, 'sendContact'])->name('contact.send');
-
-Route::get('searchBooking/{search}', [BookingController::class, 'search'])->name('booking.search');
 
 Auth::routes(['verify' => true]);
 
@@ -61,6 +51,8 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('towns', TownCompanyController::class);
     Route::resource('trajets', TrajetCompanyController::class);
     Route::resource('book', BookingCompanyController::class);
+    Route::put('confirmedBooking/{key}', [BookingCompanyController::class, 'active'])->name('book.confirmed');
+    Route::put('unconfirmedBooking/{key}', [BookingCompanyController::class, 'inactive'])->name('book.inactive');
     Route::resource('clients', TravellerCompanyController::class);
 
     Route::get('company', [DashboardCompanyController::class, 'voir'])->name('company.profile');
@@ -70,4 +62,16 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::put('companyUpdate/{key}', [DashboardCompanyController::class, 'updateCompany'])
         ->name('company.update');
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('contact', [HomeController::class, 'contact'])->name('app.contact');
+Route::get('company', [CompanyController::class, 'index'])->name('company.index');
+Route::get('/company/{name}', [CompanyController::class, 'showCompany'])->name('company.detail');
+Route::get('/booking/{key}', [CompanyController::class, 'booking'])->name('company.booking');
+Route::post('reservation/', [CompanyController::class, 'book'])->name('booking.company');
+Route::get('/confirmation', [CompanyController::class, 'confirmation'])->name('confirmation.index');
+Route::post('contact', [HomeController::class, 'sendContact'])->name('contact.send');
+
+Route::get('searchBooking/{search}', [BookingController::class, 'search'])->name('booking.search');
+
 

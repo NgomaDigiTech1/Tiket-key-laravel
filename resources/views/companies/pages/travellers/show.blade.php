@@ -43,19 +43,19 @@
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
                                                     <span class="profile-ud-label">Age chauffeur</span>
-                                                    <span class="profile-ud-value">{{ $driver->age ?? "" }}</span>
+                                                    <span class="profile-ud-value">{{ $traveller->age ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
                                                     <span class="profile-ud-label">Telephone</span>
-                                                    <span class="profile-ud-value">{{ $driver->phone_number ?? "" }}</span>
+                                                    <span class="profile-ud-value">{{ $traveller->phone_number ?? "" }}</span>
                                                 </div>
                                             </div>
                                             <div class="profile-ud-item">
                                                 <div class="profile-ud wider">
                                                     <span class="profile-ud-label">Travail chez</span>
-                                                    <span class="profile-ud-value">{{ $driver->company->name_company }}</span>
+                                                    <span class="profile-ud-value">{{ $traveller->company->name_company }}</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -42,4 +42,16 @@ class BookingCompanyController extends Controller
         $this->repository->delete($key);
         return redirect()->route('company.bookings.index');
     }
+
+    public function active(string $key): RedirectResponse
+    {
+        $this->repository->confirmedBooking($key);
+        return back();
+    }
+
+    public function inactive(string $key): RedirectResponse
+    {
+        $this->repository->invalidateRoom($key);
+        return back();
+    }
 }

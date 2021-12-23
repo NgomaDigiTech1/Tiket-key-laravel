@@ -29,11 +29,6 @@ class HomeController extends Controller
 
     public function sendContact(Request $request)
     {
-        $request->validate([
-            'full_name' => ['required'],
-            'email' => ['required'],
-            'phone' => ['required'],
-            'comments' => ['required']
-        ]);
+
     }
 }

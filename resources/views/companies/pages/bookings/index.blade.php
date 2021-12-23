@@ -22,6 +22,9 @@
                                 <thead>
                                 <tr class="nk-tb-item nk-tb-head">
                                     <th class="nk-tb-col tb-col-mb">
+                                        <span class="sub-text">Code</span>
+                                    </th>
+                                    <th class="nk-tb-col tb-col-mb">
                                         <span class="sub-text">Ville de depart</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
@@ -33,6 +36,9 @@
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Nom du client</span>
                                     </th>
+                                    <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Status</span>
+                                    </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
                                         <span class="sub-text">Actions</span>
                                     </th>
@@ -42,13 +48,26 @@
                                 @foreach($bookings as $booking)
                                     <tr class="nk-tb-item">
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $booking->booking->starting_city ?? "" }}</span>
+                                            <span>{{ $booking->transaction_code ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $booking->booking->arrival_city ?? "" }}</span>
+                                            <span>{{ $booking->trajet->starting_city ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $booking->traveller->first_name ?? "" }}</span>
+                                            <span>{{ $booking->trajet->arrival_city ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $booking->trajet->getPrices() ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ strtoupper($booking->traveller->name) ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
+                                            @if($booking->status)
+                                                <span class="badge badge-dot badge-dot-xs badge-success">Active</span>
+                                            @else
+                                                <span class="badge badge-dot badge-dot-xs badge-warning">Pending</span>
+                                            @endif
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">
@@ -61,11 +80,10 @@
                                                             <ul class="link-list-opt no-bdr">
                                                                     <li>
                                                                         <a href="{{ route('company.book.show', $booking->key) }}">
-                                                                            <em class="icon ni ni-eye"></em>
+                                                                            <em class="icon ni ni-edit"></em>
                                                                             <span>Voir</span>
                                                                         </a>
                                                                     </li>
-
                                                                     <li>
                                                                         <form action="{{ route('company.book.destroy', $booking->key) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
                                                                             @method('DELETE')
