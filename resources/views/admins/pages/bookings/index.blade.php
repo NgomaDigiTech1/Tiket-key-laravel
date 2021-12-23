@@ -35,6 +35,8 @@
                                 <thead>
                                 <tr class="nk-tb-item nk-tb-head">
                                     <th class="nk-tb-col tb-col-mb">
+                                        <span class="sub-text">Code</span>
+                                    </th><th class="nk-tb-col tb-col-mb">
                                         <span class="sub-text">Ville de depart</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
@@ -60,6 +62,9 @@
                                 <tbody>
                                 @foreach($bookings as $booking)
                                     <tr class="nk-tb-item">
+                                        <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $booking->transaction_code ?? "" }}</span>
+                                        </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ $booking->trajet->starting_city ?? "" }}</span>
                                         </td>
