@@ -14,12 +14,6 @@ class TownForm extends Form
         $this
             ->add('name_town', 'text', [
                 'label' => "Nom d'une ville"
-            ])
-            ->add('company_id',Field::CHOICE, [
-                'label' => 'Gestionnaire',
-                'choices' => Company::all()->pluck( 'name_company', 'id')->toArray(),
-                'multiple' => false,
-                'attr' => ['class' => 'form-select']
             ]);
     }
 }

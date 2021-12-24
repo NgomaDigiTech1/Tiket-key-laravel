@@ -21,6 +21,7 @@ class TrajetRequest extends FormRequest
             'prices' => ['required', 'integer', 'min:3'],
             'start_time' => ['required','date_format:H:i'],
             'arrival_time' => ['required', 'date_format:H:i'],
+            'shutdowns' => ['required'],
 
             'company_id' => ['required'],
             'company_id.*' => ['integer', Rule::exists('companies', 'id')]

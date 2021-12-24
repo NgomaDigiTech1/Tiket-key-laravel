@@ -61,11 +61,3 @@
         </div>
     </div>
 @endsection
-
-@section('scripts')
-    <script>
-        $(document).ready(function(){
-            let content = $('#lists-tickets').html('');
-        });
-    </script>
-@endsection

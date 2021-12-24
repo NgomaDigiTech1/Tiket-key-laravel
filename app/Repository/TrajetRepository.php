@@ -23,7 +23,7 @@ class TrajetRepository extends Interfaces\BaseRepositoryInterface
     {
         return Trajet::query()
             ->where('key', '=', $key)
-            ->firstOrFail();
+            ->first();
     }
 
     public function create($attributes): Model|Builder
@@ -36,6 +36,7 @@ class TrajetRepository extends Interfaces\BaseRepositoryInterface
                 'company_id' => $attributes->input('company_id'),
                 'start_time' => $attributes->input('start_time'),
                 'arrival_time' => $attributes->input('arrival_time'),
+                'shutdowns' => $attributes->input('shutdowns')
             ]);
         toast("Une nouvelle destination a ete ajouter", 'success');
         return $trajet;
@@ -51,6 +52,7 @@ class TrajetRepository extends Interfaces\BaseRepositoryInterface
             'prices' => $attributes->input('prices'),
             'start_time' => $attributes->input('start_time'),
             'arrival_time' => $attributes->input('arrival_time'),
+            'shutdowns' => $attributes->input('shutdowns')
         ]);
         toast("Une mise a jours a ete faite sur une  destination", 'warning');
         return $trajet;

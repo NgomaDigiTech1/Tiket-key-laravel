@@ -12,7 +12,8 @@ return new class extends Migration {
             $table->id();
             $table->string('key')->unique();
             $table->foreignId('trajet_id')
-                ->constrained();
+                ->constrained()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

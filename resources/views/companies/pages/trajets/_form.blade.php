@@ -28,6 +28,11 @@
                 {!! form_row($form->arrival_time) !!}
             </div>
         </div>
+        <div class="form-group">
+            <div class="form-control-wrap">
+                {!! form_row($form->shutdowns) !!}
+            </div>
+        </div>
     </div>
 </div>
 <div class="form-group mt-3">

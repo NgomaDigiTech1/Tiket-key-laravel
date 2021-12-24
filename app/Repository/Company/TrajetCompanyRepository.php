@@ -43,6 +43,7 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
                 'company_id' => auth()->user()->company->id,
                 'start_time' => $attributes->input('start_time'),
                 'arrival_time' => $attributes->input('arrival_time'),
+                'shutdowns' => $attributes->input('shutdowns')
             ]);
         toast("Une nouvelle destination a ete ajouter", 'success');
         return $trajet;
@@ -58,6 +59,7 @@ class TrajetCompanyRepository extends BaseRepositoryInterface
             'prices' => $attributes->input('prices'),
             'start_time' => $attributes->input('start_time'),
             'arrival_time' => $attributes->input('arrival_time'),
+            'shutdowns' => $attributes->input('shutdowns')
         ]);
         toast("Une mise a jours a ete faite sur une  destination", 'warning');
         return $trajet;

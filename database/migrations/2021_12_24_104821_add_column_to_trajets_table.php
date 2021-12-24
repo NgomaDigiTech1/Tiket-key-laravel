@@ -9,16 +9,14 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::table('towns', function (Blueprint $table) {
-            $table->foreignId('company_id')
-                ->constrained()
-                ->cascadeOnDelete();
+        Schema::table('trajets', function (Blueprint $table) {
+            $table->string('shutdowns')->nullable();
         });
     }
 
     public function down()
     {
-        Schema::table('towns', function (Blueprint $table) {
+        Schema::table('trajets', function (Blueprint $table) {
             //
         });
     }

@@ -28,6 +28,9 @@ class TrajetCompanyForm extends Form
             ->add('prices', 'number', [
                 'label' => "Prix du voyage"
             ])
+            ->add('shutdowns', 'text', [
+                'label' => "Arret de bus"
+            ])
             ->add('start_time', Field::TIME, [
                 'label' => "Heure de depart"
             ])

@@ -37,9 +37,6 @@
                                     <th class="nk-tb-col tb-col-mb">
                                         <span class="sub-text">Nom des villes</span>
                                     </th>
-                                    <th class="nk-tb-col tb-col-mb">
-                                        <span class="sub-text">Companie</span>
-                                    </th>
                                     <th class="nk-tb-col nk-tb-col-tools text-right">
                                         <span class="sub-text">Actions</span>
                                     </th>
@@ -50,9 +47,6 @@
                                     <tr class="nk-tb-item">
                                         <td class="nk-tb-col tb-col-md">
                                             <span>{{ $town->name_town ?? "" }}</span>
-                                        </td>
-                                        <td class="nk-tb-col tb-col-md">
-                                            <span>{{ $town->company->name_company ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col nk-tb-col-tools">
                                             <ul class="nk-tb-actions gx-1">

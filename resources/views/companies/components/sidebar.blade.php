@@ -42,11 +42,6 @@
                         'icon' => 'ni-truck'
                     ])
                     @include('admins.components.NavLink', [
-                        'route' => route('company.towns.index'),
-                        'name' => 'Ville',
-                        'icon' => 'ni-location'
-                    ])
-                    @include('admins.components.NavLink', [
                         'route' => route('company.trajets.index'),
                         'name' => 'Ligne de transport',
                         'icon' => 'ni-map'

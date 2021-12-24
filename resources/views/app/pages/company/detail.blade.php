@@ -32,6 +32,7 @@
                             <div class="row">
                                 <div class="col col-sm-3"><span class="d-none d-sm-block">Trajet</span></div>
                                 <div class="col col-sm-2 text-center">Heure de depart</div>
+                                <div class="col col-sm-2 text-center">Arret de depart</div>
                                 <div class="col col-sm-3 text-center d-none d-sm-block">Price</div>
                             </div>
                         </div>
@@ -46,6 +47,10 @@
                                         <div class="col col-sm-2 text-center time-info">
                                             <span class="text-4 text-dark">{{ $trajet->start_time ?? "" }}</span>
                                             <small class="text-muted d-block">{{ $trajet->starting_city ?? "" }}</small>
+                                        </div>
+                                        <div class="col col-sm-2 text-center time-info">
+                                            <span class="text-4 text-dark">{{ $trajet->starting_city ?? "" }}</span>
+                                            <small class="text-muted d-block">{{ $trajet->shutdowns ?? "" }}</small>
                                         </div>
                                         <div class="col-12 col-sm-3 align-self-center text-right text-sm-center mt-2 mt-sm-0">
                                             <div class="d-inline-block d-sm-block text-dark text-5 price mb-sm-1">{{ $trajet->getPrices() }}</div>

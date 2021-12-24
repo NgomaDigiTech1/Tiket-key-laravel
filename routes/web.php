@@ -18,7 +18,6 @@ use App\Http\Controllers\Companies\BookingCompanyController;
 use App\Http\Controllers\Companies\BusCompanyController;
 use App\Http\Controllers\Companies\DashboardCompanyController;
 use App\Http\Controllers\Companies\DriverCompanyController;
-use App\Http\Controllers\Companies\TownCompanyController;
 use App\Http\Controllers\Companies\TrajetCompanyController;
 use App\Http\Controllers\Companies\TravellerCompanyController;
 use App\Http\Controllers\Companies\VerificationCompanyController;
@@ -51,7 +50,6 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::resource('dashboard', DashboardCompanyController::class);
     Route::resource('chauffeur', DriverCompanyController::class);
     Route::resource('bus', BusCompanyController::class);
-    Route::resource('towns', TownCompanyController::class);
     Route::resource('trajets', TrajetCompanyController::class);
     Route::resource('book', BookingCompanyController::class);
     Route::put('confirmedBooking/{key}', [BookingCompanyController::class, 'active'])->name('book.confirmed');

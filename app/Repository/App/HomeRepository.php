@@ -85,16 +85,16 @@ class HomeRepository
                 'status' => Booking::PENDING_BOOKING,
                 'traveller_id' => $traveller->id,
                 'company_id' => $trajet->company->id,
-                'transaction_code' => $this->generateRandomTransaction(7)
+                'transaction_code' => $this->generateRandomTransaction()
             ]);
         dispatch(new BookingJob($booking, $traveller))->delay(now()->addSecond(5));
     }
 
-    private function  generateRandomTransaction(int $number): string
+    private function  generateRandomTransaction(): string
     {
         $characters = '0123456789#abcdefghilkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = '';
-        for ($i = 0; $i < $number; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $index = rand(0, strlen($characters) - 1);
             $randomString .= $characters[$index];
         }

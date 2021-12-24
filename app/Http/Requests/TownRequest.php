@@ -17,9 +17,6 @@ class TownRequest extends FormRequest
     {
         return [
             'name_town' => ['required', 'min:3', 'string'],
-
-            'company_id' => ['required'],
-            'company_id.*' => ['integer', Rule::exists('companies', 'id')]
         ];
     }
 }

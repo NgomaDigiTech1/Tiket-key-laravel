@@ -41,13 +41,13 @@
                                         <span class="sub-text">Ville d'arriver</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
+                                        <span class="sub-text">Arret de bus</span>
+                                    </th>
+                                    <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Montant</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Heure de depart</span>
-                                    </th>
-                                    <th class="nk-tb-col tb-col-md">
-                                        <span class="sub-text">Heure d'arriver</span>
                                     </th>
                                     <th class="nk-tb-col tb-col-md">
                                         <span class="sub-text">Agence de transport</span>
@@ -67,20 +67,15 @@
                                             <span>{{ $trajet->arrival_city ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
+                                            <span>{{ $trajet->shutdowns ?? "" }}</span>
+                                        </td>
+                                        <td class="nk-tb-col tb-col-md">
                                             <span>{{ $trajet->getPrices() ?? "" }}</span>
                                         </td>
                                         <td class="nk-tb-col tb-col-md">
                                             <span>
                                                 {{
                                                     \Carbon\Carbon::parse($trajet->start_time, 'UTC')
-                                                    ->isoFormat('HH:mm A') ?? ""
-                                                }}
-                                            </span>
-                                        </td>
-                                        <td class="nk-tb-col tb-col-md">
-                                            <span>
-                                                {{
-                                                    \Carbon\Carbon::parse($trajet->arrival_time, 'UTC')
                                                     ->isoFormat('HH:mm A') ?? ""
                                                 }}
                                             </span>

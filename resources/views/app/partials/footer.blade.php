@@ -5,15 +5,15 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="footer-about footer-margin">
-                            <div class="about-logo">
-                                <img src="{{ asset('assets/admins/images/logo.png') }}" alt="Image">
+                            <div class="logo">
+                                <img src="{{ asset('assets/admins/images/logo.png') }}" height="50%" width="80%" alt="Image">
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                             <div class="about-location">
                                 <ul>
                                     <li><i class="flaticon-maps-and-flags" aria-hidden="true"></i> Location</li>
                                     <li><i class="flaticon-phone-call"></i> (012)-345-6789</li>
-                                    <li><i class="flaticon-mail"></i> <a href="https://htmldesigntemplates.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11657e64637f65637067747d51657462657c70787d3f727e7c">[email&#160;protected]</a></li>
+                                    <li><i class="flaticon-mail"></i> <a href="" class="__cf_email__">[email&#160;protected]</a></li>
                                 </ul>
                             </div>
                             <div class="footer-social-links">
