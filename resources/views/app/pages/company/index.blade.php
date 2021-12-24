@@ -19,6 +19,9 @@
 
     <section class="cars-destinations">
         <div class="container">
+            <div class="row slide-button">
+                <table class="table" id="dynamic-row"></table>
+            </div>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-wrapper">
@@ -59,26 +62,30 @@
                             <div class="detail-title">
                                 <h3>Destination</h3>
                             </div>
-                            <form>
+                            <form id="submit">
                                 <div class="row">
                                     <div class="form-group col-lg-12">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="depart"
-                                            placeholder="Flying from">
+                                        <select name="depart" id="depart" class="form-control">
+                                            <option value="0">Depart</option>
+                                            @foreach($towns as $town)
+                                                <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
+                                            @endforeach
+                                        </select>
+                                        <i class="flaticon-maps-and-flags"></i>
                                     </div>
                                     <div class="form-group col-lg-12">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="return"
-                                            placeholder="Flying To">
+                                        <select name="depart" id="arriver" class="form-control">
+                                            <option value="0">Arriver</option>
+                                            @foreach($towns as $town)
+                                                <option value="{{ $town->name_town }}">{{ $town->name_town ?? "" }}</option>
+                                            @endforeach
+                                        </select>
+                                        <i class="flaticon-maps-and-flags"></i>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="comment-btn">
-                                            <a href="#" class="btn-blue btn-red">Search Now</a>
+                                            <button type="submit" class="btn-blue btn-red">Search Now</button>
                                         </div>
                                     </div>
                                 </div>
@@ -89,4 +96,50 @@
             </div>
         </div>
     </section>
+@endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#submit').submit(function (e){
+                e.preventDefault();
+                let data = {
+                    depart: $('#depart').val(),
+                    arriver: $('#arriver').val()
+                }
+                if (data) {
+                    $.ajax({
+                        url: `searchBooking/${data}`,
+                        type: "get",
+                        data: {data},
+                        dataType:"json",
+                        delay: 220,
+                        success: function (response) {
+                            let tableRow = '';
+                            $('#dynamic-row').html('');
+                            $.each(response.trajets, function (index, values) {
+                                tableRow = `
+                                    <tbody class="text-center">
+                                        <tr>
+                                            <th scope="row">`+values.starting_city+` - `+ values.arrival_city+`</th>
+                                                 <td>`+values.start_time+`</td>
+                                                 <td>`+values.company.name_company+`</td>
+                                                 <td>`+values.prices+`FC</td>
+                                                 <td>
+                                                     <a href="/booking/${values.key}" class="btn btn-outline-primary">Book</a>
+                                                 </td>
+                                            </tr>
+                                    </tbody>`
+                                $('#dynamic-row').append(tableRow);
+                            })
+                        },
+                        error: function (err) {
+                            console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+                        }
+                    });
+                }
+            })
+        });
+    </script>
 @endsection

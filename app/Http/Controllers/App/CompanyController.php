@@ -18,7 +18,8 @@ class CompanyController extends Controller
     public function index(): Factory|View|Application
     {
         return view('app.pages.company.index', [
-            'companies' => $this->repository->getCompanies()
+            'companies' => $this->repository->getCompanies(),
+            'towns' => $this->repository->getTowns(),
         ]);
     }
 

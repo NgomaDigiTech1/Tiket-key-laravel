@@ -22,6 +22,7 @@
         @include('app.partials.footer')
     </div>
     @include('app.components.scripts')
+    @yield('scripts')
     @include('sweetalert::alert')
 </body>
 </html>
