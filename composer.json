@@ -9,6 +9,7 @@
         "consoletvs/charts": "^7.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jorenvanhocht/laravel-share": "^4.1",
         "juststeveking/laravel-key-factory": "^1.0",
         "kris/laravel-form-builder": "^1.40",
         "laravel/framework": "^8.65",
@@ -17,7 +18,9 @@
         "laravel/ui": "^3.4",
         "milon/barcode": "^8.0",
         "picqer/php-barcode-generator": "^2.2",
-        "realrashid/sweet-alert": "^4.1"
+        "realrashid/sweet-alert": "^4.1",
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "symfony/mailer": "^6.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\TownDashboardController;
 use App\Http\Controllers\Admins\TrajetDashboardController;
 use App\Http\Controllers\Admins\TravellerDashboardController;
 use App\Http\Controllers\Admins\UserDashboardController;
+use App\Http\Controllers\Admins\VerificationBackendController;
 use App\Http\Controllers\App\BookingController;
 use App\Http\Controllers\App\CompanyController;
 use App\Http\Controllers\App\HomeController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Companies\DriverCompanyController;
 use App\Http\Controllers\Companies\TownCompanyController;
 use App\Http\Controllers\Companies\TrajetCompanyController;
 use App\Http\Controllers\Companies\TravellerCompanyController;
+use App\Http\Controllers\Companies\VerificationCompanyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +43,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['super.adm
     Route::put('confirmedBooking/{key}', [BookingDashboardController::class, 'active'])->name('booking.confirmed');
     Route::put('unconfirmedBooking/{key}', [BookingDashboardController::class, 'inactive'])->name('booking.inactive');
     Route::resource('travellers', TravellerDashboardController::class);
+    Route::get('verificationTicket', [VerificationBackendController::class, 'verification'])->name('verification.index');
     Route::get('eventLog', [EventLogDashboardController::class, 'index'])->name('event.log');
 });
 
@@ -54,6 +57,7 @@ Route::group(['prefix' => 'company', 'as' => 'company.', 'middleware' => ['admin
     Route::put('confirmedBooking/{key}', [BookingCompanyController::class, 'active'])->name('book.confirmed');
     Route::put('unconfirmedBooking/{key}', [BookingCompanyController::class, 'inactive'])->name('book.inactive');
     Route::resource('clients', TravellerCompanyController::class);
+    Route::get('verificationTicket', [VerificationCompanyController::class, 'verification'])->name('verification.index');
 
     Route::get('company', [DashboardCompanyController::class, 'voir'])->name('company.profile');
     Route::put('userUpdate/{key}', [DashboardCompanyController::class, 'updateUser'])

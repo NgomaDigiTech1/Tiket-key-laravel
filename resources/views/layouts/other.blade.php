@@ -10,6 +10,8 @@
     <link href="{{ asset('assets/frontends/font/flaticon.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/frontends/css/plugin.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/frontends/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontends/css/font.css') }}">
+    @yield('styles')
 </head>
 <body class="cars-inner">
     <div id="app">

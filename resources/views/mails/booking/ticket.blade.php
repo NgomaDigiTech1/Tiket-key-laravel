@@ -76,9 +76,6 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="mb-3">
-                    {{ $booking['codebar'] }}
-                </div>
             </div>
         </div>
     </div>

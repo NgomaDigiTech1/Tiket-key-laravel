@@ -32,11 +32,10 @@ class HomeRepository
 
     public function showDetails(string $company): Model|Builder|null
     {
-        $company =  Company::query()
+        return Company::query()
             ->where('name_company', '=', $company)
             ->with('trajets')
             ->first();
-        return $company;
     }
 
     public function showBooking(string $key): Model|Builder|null
@@ -54,6 +53,7 @@ class HomeRepository
             "email" => ['required', 'email'],
             "phone_number" => ['required'],
             "trajet_key" => ['required'],
+            'id_number' => ['nullable'],
             'trajet_key.*' => ['string', Rule::exists('trajets', 'key')],
         ])->validate();
 
@@ -67,7 +67,8 @@ class HomeRepository
                 'first_name' => $data['first_name'],
                 'email' => $data['email'],
                 'phone_number' => $data['phone_number'],
-                'company_id' => $trajet->company->id
+                'company_id' => $trajet->company->id,
+                'id_number' => $data['id_number']
             ]);
 
         $this->StoreBooking($trajet, $traveller);
@@ -97,6 +98,6 @@ class HomeRepository
             $index = rand(0, strlen($characters) - 1);
             $randomString .= $characters[$index];
         }
-        return $randomString;
+        return strtoupper($randomString);
     }
 }

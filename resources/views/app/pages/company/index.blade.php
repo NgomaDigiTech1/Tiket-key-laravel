@@ -27,7 +27,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6">
                                         <div class="blog-image">
-                                            <img src="{{ asset('storage/'. $company->picture) }}" alt="{{ $company->name_company ?? "" }}">
+                                            <img
+                                                src="{{ asset('storage/'. $company->picture) }}"
+                                                width="70"
+                                                height="90"
+                                                alt="{{ $company->name_company ?? "" }}"
+                                            >
                                         </div>
                                     </div>
                                     <div class="col-lg-6">

@@ -31,8 +31,15 @@ class CompanyController extends Controller
 
     public function booking(string $key): Factory|View|Application
     {
+        $trajet = $this->repository->showBooking($key);
+        $socialShare = \Share::page(
+            $trajet->company->phone_number,
+            'Whatsapp'
+        )->whatsapp();
+
         return view('app.pages.company.booking', [
-            'trajet' => $this->repository->showBooking($key)
+            'trajet' => $trajet,
+            'social' => $socialShare
         ]);
     }
 

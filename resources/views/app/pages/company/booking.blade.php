@@ -24,7 +24,9 @@
                 <div id="content" class="col-lg-8">
                     <div class="detail-content">
                         <div class="description detail-box car-book">
-                            <div class="detail-title"><h3>BOOKING INFORMATION</h3></div>
+                            <div class="detail-title">
+                                <h3>INFORMATIONS SUR LA RÉSERVATION</h3>
+                            </div>
                             <div class="description-content">
                                 <div class="row">
                                     <div class="form-group col-lg-12">
@@ -75,7 +77,9 @@
                             </div>
                         </div>
                         <div class="description detail-box car-book">
-                            <div class="detail-title"><h3>YOUR PERSONAL INFORMATION</h3></div>
+                            <div class="detail-title">
+                                <h3>IDENTITE DU VOYAGEUR</h3>
+                            </div>
                             <div class="description-content">
                                 <form method="POST" action="{{ route('booking.company') }}">
                                     @csrf
@@ -120,11 +124,21 @@
                                                 value="{{ old('phone_number') }}"
                                                 placeholder="votre numero de telephone">
                                         </div>
+                                        <div class="form-group col-lg-12">
+                                            <label>Num Piece d'identiter:</label>
+                                            <input
+                                                type="number"
+                                                class="form-control @error('id_number') is-invalid @enderror"
+                                                id="id_number"
+                                                name="id_number"
+                                                value="{{ old('id_number') }}"
+                                                placeholder="numero piece d'identiter">
+                                        </div>
                                         <input type="hidden" name="trajet_key"  value="{{ $trajet->key }}">
                                     </div>
                                     <div class="comment-btn">
                                         <button type="submit" class="btn-blue btn-red">
-                                            Complete Booking
+                                            Reserver
                                         </button>
                                     </div>
                                 </form>
@@ -148,6 +162,9 @@
                                         {{ $trajet->company->email }}
                                     </span>
                                 </p>
+                                <div>
+                                    {!! $social !!}
+                                </div>
                             </div>
                         </div>
                     </aside>
@@ -155,4 +172,18 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('styles')
+    <style>
+        div#social-links {
+            max-width: 500px;
+        }
+        div#social-links ul li {
+            display: inline-block;
+        }
+        div#social-links ul li a {
+            color: #ffffff;
+        }
+    </style>
 @endsection

@@ -21,19 +21,20 @@
     <section class="booking">
         <div class="container">
             <div class="row" style="position: relative;">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="booking-confirmed booking-outer">
-                        <div class="confirmation-title">
-                            <div class="form-title form-title-1">
-                                <h2>Congratulations your booking has been confirmed</h2>
+                        <div class="confirmation-title text-center">
+                            <div class="form-title form-title-1 text-center">
+                                <h2>Félicitations, votre réservation a été recu avec success</h2>
                             </div>
-                            <p>A confirmation email has been sent to your provided email address.</p>
+                            <p  class="text-center">Un courriel a été envoyé à l'adresse électronique que vous avez fournie. contenant les informations sur le paiement </p>
                         </div>
+                    </div>
+                    <div class="text-center justify-content-center">
+                        <a href="{{ route('company.index') }}" class="btn-blue btn-red">Reserver encore</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 @endsection

@@ -61,6 +61,11 @@
                         'name' => 'Clients',
                         'icon' => 'ni-user-fill-c'
                     ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('company.verification.index'),
+                        'name' => 'Verification ticket',
+                        'icon' => 'ni-check-circle-fill'
+                    ])
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Autres</h6>
                     </li>

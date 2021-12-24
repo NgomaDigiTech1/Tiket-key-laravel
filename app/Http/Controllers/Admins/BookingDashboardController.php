@@ -34,13 +34,13 @@ class BookingDashboardController extends Controller
     public function update(string $key, Request $attributes): RedirectResponse
     {
         $this->repository->update($key, $attributes);
-        return redirect()->route('admin.bookings.index');
+        return redirect()->back();
     }
 
     public function destroy(string $key): RedirectResponse
     {
         $this->repository->delete($key);
-        return redirect()->route('admin.bookings.index');
+        return redirect()->back();
     }
 
     public function active(string $key): RedirectResponse

@@ -26,12 +26,12 @@
                     </li>
                     @include('admins.components.NavLink', [
                         'route' => route('admin.users.index'),
-                        'name' => 'Utilisateur',
+                        'name' => 'Utilisateurs',
                         'icon' => 'ni-users'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.company.index'),
-                        'name' => 'Companie',
+                        'name' => 'Companies',
                         'icon' => 'ni-building'
                     ])
                     @include('admins.components.NavLink', [
@@ -41,7 +41,7 @@
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.towns.index'),
-                        'name' => 'Ville',
+                        'name' => 'Villes',
                         'icon' => 'ni-location'
                     ])
                     @include('admins.components.NavLink', [
@@ -60,13 +60,18 @@
                     </li>
                     @include('admins.components.NavLink', [
                         'route' => route('admin.booking.index'),
-                        'name' => 'Reservation',
+                        'name' => 'Reservations',
                         'icon' => 'ni-calendar-booking'
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.travellers.index'),
                         'name' => 'Clients',
                         'icon' => 'ni-users'
+                    ])
+                    @include('admins.components.NavLink', [
+                        'route' => route('admin.verification.index'),
+                        'name' => 'Verification ticket',
+                        'icon' => 'ni-check-circle-cut'
                     ])
                 </ul>
             </div>

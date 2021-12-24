@@ -21,7 +21,7 @@
                         'amount' => \App\Models\User::count()
                     ])
                     @include('admins.components._stat', [
-                        'username' => "Companie",
+                        'username' => "Companies",
                         'amount' => \App\Models\Company::count()
                     ])
                     @include('admins.components._stat', [
@@ -29,7 +29,7 @@
                         'amount' => \App\Models\Bus::count()
                     ])
                     @include('admins.components._stat', [
-                        'username' => "Reservation",
+                        'username' => "Reservations",
                         'amount' => \App\Models\Booking::count()
                     ])
                 </div>

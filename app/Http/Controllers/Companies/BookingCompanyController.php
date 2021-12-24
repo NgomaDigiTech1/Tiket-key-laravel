@@ -34,13 +34,13 @@ class BookingCompanyController extends Controller
     public function update(string $key, Request $attributes): RedirectResponse
     {
         $this->repository->update($key, $attributes);
-        return redirect()->route('company.bookings.index');
+        return redirect()->route('company.book.index');
     }
 
     public function destroy(string $key): RedirectResponse
     {
         $this->repository->delete($key);
-        return redirect()->route('company.bookings.index');
+        return redirect()->back();
     }
 
     public function active(string $key): RedirectResponse

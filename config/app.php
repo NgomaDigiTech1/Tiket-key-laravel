@@ -168,6 +168,8 @@ return [
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
 
         /*
@@ -236,7 +238,8 @@ return [
 
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
-
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ],
 
 ];
