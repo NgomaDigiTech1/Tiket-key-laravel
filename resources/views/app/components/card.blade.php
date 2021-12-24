@@ -1,7 +1,11 @@
 <div class="col-lg-6">
     <div class="package-item box-item">
         <div class="package-image">
-            <img src="{{ asset('storage/'.$company->picture) }}" alt="Image">
+            <img
+                src="{{ asset('storage/'.$company->picture) }}"
+                width="70"
+                height="90"
+                alt="Image">
         </div>
         <div class="package-content">
             <h4>{{ $company->name_company ?? "" }}</h4>

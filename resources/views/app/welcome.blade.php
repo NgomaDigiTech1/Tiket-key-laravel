@@ -83,7 +83,7 @@
                             $('#dynamic-row').html('');
                             $.each(response.trajets, function (index, values) {
                                 tableRow = `
-                                    <tbody >
+                                    <tbody class="text-center">
                                         <tr>
                                             <th scope="row">`+values.starting_city+` - `+ values.arrival_city+`</th>
                                                  <td>`+values.start_time+`</td>
