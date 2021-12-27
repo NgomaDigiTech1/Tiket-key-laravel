@@ -25,12 +25,12 @@
                         'amount' => \App\Models\Bus::where('company_id', auth()->user()->company->id)->count()
                     ])
                     @include('companies.components._stat', [
-                        'username' => "Ville",
-                        'amount' => \App\Models\Town::where('company_id', auth()->user()->company->id)->count()
+                        'username' => "Reservations",
+                        'amount' => \App\Models\Booking::where('company_id', auth()->user()->company->id)->count()
                     ])
                     @include('companies.components._stat', [
-                        'username' => "Reservation",
-                        'amount' => \App\Models\Booking::where('company_id', auth()->user()->company->id)->count()
+                        'username' => "Voyages",
+                        'amount' => \App\Models\Trajet::where('company_id', auth()->user()->company->id)->count()
                     ])
                 </div>
 

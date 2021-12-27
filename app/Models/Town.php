@@ -13,10 +13,4 @@ class Town extends Model
     use HasFactory, HasKey;
 
     protected $guarded = [];
-
-    public function company(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'company_id');
-    }
-
 }
