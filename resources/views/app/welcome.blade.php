@@ -86,7 +86,6 @@
                                     <tbody class="text-center">
                                         <tr>
                                             <th scope="row">`+values.starting_city+` - `+ values.arrival_city+`</th>
-                                                 <td>`+values.shutdowns+`</td>
                                                  <td>`+values.start_time+`</td>
                                                  <td>`+values.company.name_company+`</td>
                                                  <td>`+values.prices+`FC</td>
