@@ -24,7 +24,7 @@
                             <ul class="nav navbar-nav" id="responsive-menu">
                                 @include('app.partials.NavLink', [
                                     'route' => route('home.index'),
-                                    'name' => "Home"
+                                    'name' => "Accueil"
                                 ])
                                 @include('app.partials.NavLink', [
                                     'route' => route('company.index'),

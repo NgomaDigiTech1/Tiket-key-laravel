@@ -48,7 +48,7 @@
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('company.book.index'),
-                        'name' => 'Reservation',
+                        'name' => 'Reservations',
                         'icon' => 'ni-calendar-booking-fill'
                     ])
                     @include('admins.components.NavLink', [
@@ -66,7 +66,7 @@
                     </li>
                     @include('admins.components.NavLink', [
                         'route' => route('company.company.profile'),
-                        'name' => 'Config',
+                        'name' => 'Parametre',
                         'icon' => 'ni-setting-alt-fill'
                     ])
                 </ul>
