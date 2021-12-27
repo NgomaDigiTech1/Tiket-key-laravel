@@ -13,7 +13,7 @@ class TownForm extends Form
     {
         $this
             ->add('name_town', 'text', [
-                'label' => "Nom d'une ville"
+                'label' => "Nom d'une ville (Precisez l'arret)"
             ]);
     }
 }
