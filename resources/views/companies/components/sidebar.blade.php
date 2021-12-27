@@ -43,7 +43,7 @@
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('company.trajets.index'),
-                        'name' => 'Ligne de transport',
+                        'name' => 'Voyages',
                         'icon' => 'ni-map'
                     ])
                     @include('admins.components.NavLink', [

@@ -51,10 +51,9 @@
                     ])
                     @include('admins.components.NavLink', [
                         'route' => route('admin.trajets.index'),
-                        'name' => 'Ligne de transport',
+                        'name' => 'Voyages',
                         'icon' => 'ni-map'
                     ])
-
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Transaction</h6>
                     </li>
