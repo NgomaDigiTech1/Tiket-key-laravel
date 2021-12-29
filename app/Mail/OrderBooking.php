@@ -17,8 +17,8 @@ class OrderBooking extends Mailable
     public function build(): OrderBooking
     {
         return $this
-            ->from('ngomadigitech@gmail.com', 'confirmation')
-            ->bcc('scotttresor@gmail.com')
+            ->from('youness@ngomadigi.tech', 'confirmation')
+            ->bcc('infos@domiyns.com')
             ->subject('Reservation d un ticket de transposrt')
             ->view('mails.booking.confirmation',[
                 'booking' => $this->booking

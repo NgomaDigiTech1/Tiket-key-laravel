@@ -20,8 +20,8 @@ class ConfirmedBookingMail extends Mailable
     {
         $content = `<img src="data:image/png;base64,` . DNS2D::getBarcodeHTML($this->booking->transaction_code, 'QRCODE') . `" alt="barcode"   />`;
         return $this
-            ->from('ngomadigitech@gmail.com', 'confirmation')
-            ->bcc('scotttresor@gmail.com')
+            ->from('youness@ngomadigi.tech', 'confirmation')
+            ->bcc('infos@domiyns.com')
             ->subject('Ticker de voyage')
             ->view('mails.booking.ticket',[
                 'booking' => $this->booking[$content],
