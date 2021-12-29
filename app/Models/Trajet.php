@@ -15,7 +15,7 @@ class Trajet extends Model
 
     protected $guarded = [];
 
-    public function getPrices(): string
+    public function getPrices(): float
     {
         return number_format($this->prices, 1, ',', ' ').'FC';
     }
