@@ -15,9 +15,9 @@ class Trajet extends Model
 
     protected $guarded = [];
 
-    public function getPrices(): float
+    public function getPrices(): string
     {
-        return number_format($this->prices, 1, ',', ' ').'FC';
+        return $this->prices.'FC';
     }
 
     public function company(): BelongsTo
