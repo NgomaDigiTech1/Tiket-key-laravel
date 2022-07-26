@@ -9,6 +9,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,25 @@ class HomeController extends Controller
 
     public function sendContact(Request $request)
     {
+        $emails = $request->email;
+        $names = $request->full_name;
+        $phones = $request->phone;
+        $messages = $request->comments;
 
+        $data = [
+            'name'=>$names,
+            'email'=>$emails,
+            'phone'=>$phones,
+            'messages'=>$messages
+        ];
+        Mail::send('mails.contact', $data, function ($message) use ($emails, $names) {
+            $message->to($emails, $names)->subject('Message');
+            $message->from('institution@vinco.digital', 'Bus TiketKey');
+        });
+
+        Mail::send('mails.contact_reception', $data, function ($message) use ($emails, $names) {
+            $message->to($emails, $names)->subject('FeedBack Mail Send');
+            $message->from('institution@vinco.digital', 'Bus TiketKey');
+        });
     }
 }

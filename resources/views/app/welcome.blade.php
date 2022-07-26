@@ -47,7 +47,7 @@
                 <div class="section-icon">
                     <i class="flaticon-diamond"></i>
                 </div>
-                <p>Select the company of your choice and travel safely..</p>
+                <p>Select the company of your choice and travel safely...</p>
             </div>
             <div id="errors"></div>
             <div class="row slide-button">
