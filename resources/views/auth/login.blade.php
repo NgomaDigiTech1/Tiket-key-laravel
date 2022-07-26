@@ -69,6 +69,12 @@
                             <div class="form-group">
                                 <button class="btn btn-lg btn-primary btn-block">Connexion</button>
                             </div>
+                            <div class="form-group">
+                                Vous n'avez pas de compte?
+                                <a href="{{route('register')}}">
+                                    Inscrivez-vous.
+                                </a>
+                            </div>
                         </form>
                     </div>
                     <div class="nk-block nk-auth-footer">

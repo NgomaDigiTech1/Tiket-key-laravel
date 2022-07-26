@@ -21,8 +21,8 @@ class SuperAdminSeeder extends Seeder
                 'name' => "Ngoma",
                 'first_name' => "Digitech",
                 'picture' => asset('assets/admins/images/user.png'),
-                'email' => "ngoma.digitech@ngoma.com",
-                'password' => Hash::make("ngoma-digitech"),
+                'email' => "admin@gmail.com",
+                'password' => Hash::make("12345678"),
                 'role_id' => $role->id
             ]);
     }
