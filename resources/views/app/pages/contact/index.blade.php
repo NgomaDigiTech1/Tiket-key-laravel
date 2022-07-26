@@ -89,16 +89,7 @@
                             <ul>
                                 <li><i class="flaticon-maps-and-flags" aria-hidden="true"></i> Location</li>
                                 <li><i class="flaticon-phone-call"></i> (012)-345-6789</li>
-                                <li><i class="flaticon-mail"></i> <a href="https://htmldesigntemplates.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90e4ffe5e2fee4e2f1e6f5fcd0e4f5e3e4fdf1f9fcbef3fffd">[email&nbsp;protected]</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-social-links">
-                            <ul>
-                                <li class="social-icon"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li class="social-icon"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li class="social-icon"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li class="social-icon"><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                                <li class="social-icon"><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><i class="flaticon-mail"></i> <a href="" class="__cf_email__" data-cfemail="">infos@bus.tikeykey.com</a></li>
                             </ul>
                         </div>
                     </div>
