@@ -90,7 +90,7 @@
                                                  <td>`+values.company.name_company+`</td>
                                                  <td>`+values.prices+`FC</td>
                                                  <td>
-                                                     <a href="/booking/${values.key}" class="btn btn-outline-primary">Book</a>
+                                                     <a href="booking/${values.key}" class="btn btn-outline-primary">Book</a>
                                                  </td>
                                             </tr>
                                     </tbody>`
